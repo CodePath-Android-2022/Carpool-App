@@ -63,8 +63,8 @@ A carpool app which helps connect a lift seeker and lift giver to different geog
 
 **Tab Navigation (Nav Bar) **
 * Home
-    * Profile (will have settings & log out option within)
-    * Create Ride
+* Profile (will have settings & log out option within)
+* Create Ride
     
 **Flow Navigation**
 * Login page loads if no one is logged in -> Sign up if new user
