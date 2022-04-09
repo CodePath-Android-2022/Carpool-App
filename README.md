@@ -84,10 +84,21 @@ A carpool app which helps connect a lift seeker and lift giver to different geog
    | ------------- | -------- | ------------|
    | userId      | Pointer to User   |  user who created the ride |
    | rideId        | String | Unique id for the posted/created ride |
+   | Profile image        |File    | Profile image that user uploads |
    | description         | String     | Description included within the ride, made by the user |
+   | from       | String   | Boarding location of ride |
+   | To       | String   | Destination location of ride |
+   | Capacity       | String   | current capacity of ride |
    | createdAt       | String   | When the ride was created |
    | updatedAt | Number   | Date when posted ride was updated |
    
+#### Profile
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | user name      | String   |  User's profile name |
+   | background         | boolean | status of night/day mode |
+   | Location        |String    | Current location of the user |
    
 ### Networking
 #### List of network requests by screen
