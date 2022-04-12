@@ -3,4 +3,11 @@
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
     <string name="back4app_app_id">ABWgPFBgSF6voiuebNUgAI3yixsHqjqHYOR8Bccp</string>
     <string name="back4app_client_key">"LAQVkKuIICaFvXtKxI5PrjwBrLVe8jm5Ip5oD4IR "</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="compose">Compose</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="compose_fragment">Compose Carpool Screen</string>
+    <string name="profile_fragment">Profile Page</string>
+    <string name="feed_fragment"> Home Feed Page</string>
 </resources>

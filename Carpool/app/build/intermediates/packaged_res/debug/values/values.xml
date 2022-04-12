@@ -11,17 +11,23 @@
     <string name="back4app_app_id">ABWgPFBgSF6voiuebNUgAI3yixsHqjqHYOR8Bccp</string>
     <string name="back4app_client_key">"LAQVkKuIICaFvXtKxI5PrjwBrLVe8jm5Ip5oD4IR "</string>
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="compose">Compose</string>
+    <string name="compose_fragment">Compose Carpool Screen</string>
+    <string name="feed_fragment"> Home Feed Page</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="profile_fragment">Profile Page</string>
     <style name="Theme.Carpool" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
+        
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
+        
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+        
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        
     </style>
 </resources>
