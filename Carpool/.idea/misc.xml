@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Odaib/Desktop/Spring 2022/CodePath/Carpool Project/Carpool-App/Carpool/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.2625" />
+        <entry key="..\:/Users/Odaib/Desktop/Spring 2022/CodePath/Carpool Project/Carpool-App/Carpool/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Users/Odaib/Desktop/Spring 2022/CodePath/Carpool Project/Carpool-App/Carpool/app/src/main/res/layout/activity_main.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/Odaib/Desktop/Spring 2022/CodePath/Carpool Project/Carpool-App/Carpool/app/src/main/res/layout/fragment_compose.xml" value="0.33" />
+        <entry key="..\:/Users/Odaib/Desktop/Spring 2022/CodePath/Carpool Project/Carpool-App/Carpool/app/src/main/res/layout/fragment_feed.xml" value="0.33" />
+        <entry key="..\:/Users/Odaib/Desktop/Spring 2022/CodePath/Carpool Project/Carpool-App/Carpool/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/Users/Odaib/Desktop/Spring 2022/CodePath/Carpool Project/Carpool-App/Carpool/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
