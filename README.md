@@ -1,5 +1,48 @@
 # CarpoolApp
 
+# Week 7
+
+## User Stories
+
+The following functionality is completed:
+
+# Setup Parse client
+- [x] Create a dashbord for parse server.
+- [x] Add parse Client to project
+- [x] Create templates for necessary stater classes
+- [x] Push project to github
+
+# Create Carpool Class
+
+1. Create Setters and Getter methods for the following.
+- [x] Takeoff location 
+- [x] Destination location
+- [x] Description of Ride
+- [x] Price 
+
+2. Only Getter for the following 
+- [x] CreatedAt
+- [x] UpdatedAt
+- [x] Host/User (get current logged in user)
+
+# Create User Class
+Create the user class using the parse client's variables 
+
+1. Required
+- [x] Create setter and getters for associated variable names 
+- [x] Setter & getter for  name (first and last) 
+- [x] Setter & getter for location (String)
+
+2. Optional 
+- [x] Setter and getter for Notification Status 
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
 ## Table of Contents
 1. [Overview](#Overview)
 1. [Product Specification](#Product-Spec)
