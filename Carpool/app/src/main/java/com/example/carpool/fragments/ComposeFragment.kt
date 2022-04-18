@@ -39,8 +39,6 @@ class ComposeFragment : Fragment() {
         // get reference to the create carpool button view
         view.findViewById<Button>(R.id.btn_create_carpool).setOnClickListener {
 
-            val user = ParseUser.getCurrentUser().username
-
             // grab the start location the user has inputted
             val sourceLocation = view.findViewById<EditText>(R.id.et_start_location).text.toString()
 
@@ -68,13 +66,14 @@ class ComposeFragment : Fragment() {
             }
             else if (sourceLocation.isNotEmpty() && destinationLocation.isNotEmpty() && departureDate.isNotEmpty() &&  departureTime.isNotEmpty() &&  carCapacity.isNotEmpty() &&  description.isNotEmpty() &&  price.isNotEmpty()) {  // all fields are filled
                 Toast.makeText(context, "All fields are filled. Submitting post to server!", Toast.LENGTH_SHORT).show()
+                submitCarpoolPostToServer(ParseUser.getCurrentUser(), sourceLocation, destinationLocation, departureDate, departureTime, carCapacity.toInt(), description, price.toFloat())
             }
         }
     }
 
 
     // function to submit created carpool post to server
-    private fun submitCarpoolPost(user: ParseUser, sourceLocation: String, destinationLocation: String, departureDate: String, departureTime: String, carCapacity: Int, description: String, price: Int) {
+    private fun submitCarpoolPostToServer(user: ParseUser, sourceLocation: String, destinationLocation: String, departureDate: String, departureTime: String, carCapacity: Int, description: String, price: Float) {
 
         /**
          * WHAT'S IN THE SERVER
