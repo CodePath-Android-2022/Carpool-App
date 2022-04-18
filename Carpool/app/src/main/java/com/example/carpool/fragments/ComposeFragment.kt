@@ -73,4 +73,12 @@ class ComposeFragment : Fragment() {
             Toast.makeText(context, "Create Carpool Button Clicked!", Toast.LENGTH_SHORT).show()
         }
     }
+
+
+    // function to submit created carpool post to server
+    private fun submitCarpoolPost(startLocation: String, destination: String, departureDate: Date, carCapacity: Int, tripDescription: String, price: Int) {
+
+        // create a Carpool post object to send to server
+        val carpoolPost = CarpoolPost()
+    }
 }
