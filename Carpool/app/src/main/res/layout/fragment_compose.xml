@@ -36,9 +36,9 @@
         android:id="@+id/tv_start_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start location: "
+        android:text="Start location:"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintTop_toBottomOf="@+id/ib_user_profile"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="start location"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="20dp"
         android:inputType="textPersonName"
         app:layout_constraintTop_toTopOf="@+id/tv_start_location"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,10 +58,10 @@
         android:id="@+id/tv_destination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Destination: "
+        android:text="Destination:"
         android:layout_marginTop="40dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_start_location"
-        app:layout_constraintEnd_toEndOf="@+id/tv_start_location" />
+        app:layout_constraintStart_toStartOf="@+id/tv_start_location" />
 
     <EditText
         android:id="@+id/et_destination_location"
@@ -75,14 +75,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_destination"
         app:layout_constraintStart_toStartOf="@+id/et_start_location" />
 
-    <TextView
-        android:id="@+id/tv_departure_date"
+    <Button
+        android:id="@+id/btn_departure_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Departure date: "
+        android:text="departure date"
+        android:textSize="10sp"
         android:layout_marginTop="40dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_destination"
-        app:layout_constraintEnd_toEndOf="@+id/tv_start_location" />
+        app:layout_constraintStart_toStartOf="@+id/tv_start_location" />
 
     <EditText
         android:id="@+id/et_departure_date"
@@ -91,19 +92,20 @@
         android:ems="10"
         android:hint="mm/dd/yyyy"
         android:inputType="date"
-        app:layout_constraintTop_toTopOf="@+id/tv_departure_date"
+        app:layout_constraintTop_toTopOf="@+id/btn_departure_date"
         app:layout_constraintEnd_toEndOf="@+id/et_start_location"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_departure_date"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_departure_date"
         app:layout_constraintStart_toStartOf="@+id/et_start_location" />
 
-    <TextView
-        android:id="@+id/tv_departure_time"
+    <Button
+        android:id="@+id/btn_departure_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Departure time: "
+        android:text="departure time"
+        android:textSize="10sp"
         android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_departure_date"
-        app:layout_constraintEnd_toEndOf="@+id/tv_start_location" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_departure_date"
+        app:layout_constraintStart_toStartOf="@+id/tv_start_location" />
 
     <EditText
         android:id="@+id/et_departure_time"
@@ -112,19 +114,19 @@
         android:ems="10"
         android:hint="00:00"
         android:inputType="time"
-        app:layout_constraintTop_toTopOf="@+id/tv_departure_time"
+        app:layout_constraintTop_toTopOf="@+id/btn_departure_time"
         app:layout_constraintEnd_toEndOf="@+id/et_start_location"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_departure_time"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_departure_time"
         app:layout_constraintStart_toStartOf="@+id/et_start_location" />
 
     <TextView
         android:id="@+id/tv_car_capacity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Car capacity: "
+        android:text="Car capacity:"
         android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_departure_time"
-        app:layout_constraintEnd_toEndOf="@+id/tv_start_location" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_departure_time"
+        app:layout_constraintStart_toStartOf="@+id/tv_start_location" />
 
     <EditText
         android:id="@+id/et_car_capacity"
@@ -142,10 +144,10 @@
         android:id="@+id/tv_trip_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Trip description: "
+        android:text="Trip description:"
         android:layout_marginTop="40dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_car_capacity"
-        app:layout_constraintEnd_toEndOf="@+id/tv_start_location" />
+        app:layout_constraintStart_toStartOf="@+id/tv_start_location" />
 
     <EditText
         android:id="@+id/et_trip_description"
@@ -163,10 +165,10 @@
         android:id="@+id/tv_trip_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Price: "
+        android:text="Price:"
         android:layout_marginTop="40dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_trip_description"
-        app:layout_constraintEnd_toEndOf="@+id/tv_start_location" />
+        app:layout_constraintStart_toStartOf="@+id/tv_start_location" />
 
     <EditText
         android:id="@+id/et_trip_price"
