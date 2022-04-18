@@ -65,7 +65,7 @@ class ComposeFragment : Fragment() {
 
             Toast.makeText(context, "Create Carpool Button Clicked!", Toast.LENGTH_SHORT).show()  // just make a toast for now. todo: delete later
 
-            // todo: submit info to the home page after the user has filled all required information
+            // todo: check that all fields are filled & submit info to the home page after the user has filled all required information
         }
     }
 
