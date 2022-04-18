@@ -57,7 +57,7 @@ class ComposeFragment : Fragment() {
             val carCapacity = view.findViewById<EditText>(R.id.et_car_capacity).text.toString()
 
             // grab the trip description the user has inputted
-            val tripDescription = view.findViewById<EditText>(R.id.et_trip_description).text.toString()
+            val description = view.findViewById<EditText>(R.id.et_trip_description).text.toString()
 
             // grab the price the user has inputted
             val price = view.findViewById<EditText>(R.id.et_trip_price).text.toString()
@@ -66,6 +66,12 @@ class ComposeFragment : Fragment() {
             Toast.makeText(context, "Create Carpool Button Clicked!", Toast.LENGTH_SHORT).show()  // just make a toast for now. todo: delete later
 
             // todo: check that all fields are filled & submit info to the home page after the user has filled all required information
+            if (sourceLocation == null || destinationLocation == null || departureDate == null ||  departureTime == null ||  carCapacity == null ||  description == null ||  price == null) {  // some or all fields are empty
+                Toast.makeText(context, "Please fill all fields!", Toast.LENGTH_SHORT).show()
+            }
+            else if (sourceLocation != null && destinationLocation != null && departureDate != null &&  departureTime != null &&  carCapacity != null &&  description != null &&  price != null) {  // all fields are filled
+                Toast.makeText(context, "All fields are filled. Submitting post to server!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
