@@ -6,10 +6,169 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ComposeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <ImageButton
+        android:id="@+id/ib_user_profile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="user's profile photo" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/compose_fragment" />
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:text="username"
+        app:layout_constraintBottom_toBottomOf="@+id/ib_user_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ib_user_profile"
+        app:layout_constraintTop_toTopOf="@+id/ib_user_profile" />
+
+
+    <TextView
+        android:id="@+id/tv_start_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start location: "
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ib_user_profile" />
+
+    <EditText
+        android:id="@+id/et_start_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Start location"
+        android:layout_marginEnd="50dp"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_start_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_start_location" />
+
+    <TextView
+        android:id="@+id/tv_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Destination: "
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_start_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_start_location" />
+
+    <EditText
+        android:id="@+id/et_destination_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Destination location"
+        android:inputType="textPersonName"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_destination"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/et_start_location"
+        app:layout_constraintTop_toTopOf="@+id/tv_destination" />
+
+    <TextView
+        android:id="@+id/tv_departure_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Departure date: "
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_start_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_destination" />
+
+    <EditText
+        android:id="@+id/et_departure_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_departure_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/et_start_location"
+        app:layout_constraintTop_toTopOf="@+id/tv_departure_date" />
+
+    <TextView
+        android:id="@+id/tv_car_capacity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Car capacity: "
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_start_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_departure_date" />
+
+    <EditText
+        android:id="@+id/et_car_capacity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_car_capacity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/et_start_location"
+        app:layout_constraintTop_toTopOf="@+id/tv_car_capacity" />
+
+    <TextView
+        android:id="@+id/tv_trip_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trip description: "
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_start_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_car_capacity" />
+
+    <EditText
+        android:id="@+id/et_trip_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Trip description"
+        android:inputType="textPersonName"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_trip_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/et_start_location"
+        app:layout_constraintTop_toTopOf="@+id/tv_trip_description" />
+
+    <TextView
+        android:id="@+id/tv_trip_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_start_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_trip_description" />
+
+    <EditText
+        android:id="@+id/et_trip_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_trip_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/et_start_location"
+        app:layout_constraintTop_toTopOf="@+id/tv_trip_price" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Carpool"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_trip_price" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
