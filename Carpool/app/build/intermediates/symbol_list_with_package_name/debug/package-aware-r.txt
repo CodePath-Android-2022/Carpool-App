@@ -2618,6 +2618,8 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btn_create_carpool
+id btn_departure_date
+id btn_departure_time
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2701,8 +2703,6 @@ id end_padder
 id enterAlways
 id enterAlwaysCollapsed
 id et_car_capacity
-id et_departure_date
-id et_departure_time
 id et_destination_location
 id et_password
 id et_start_location

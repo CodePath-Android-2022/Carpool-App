@@ -2617,6 +2617,8 @@ int id bounceBoth 0x7f080064
 int id bounceEnd 0x7f080065
 int id bounceStart 0x7f080066
 int id btn_create_carpool 0x7f0801f8
+int id btn_departure_date 0x7f0801fb
+int id btn_departure_time 0x7f0801fc
 int id buttonPanel 0x7f080068
 int id cache_measures 0x7f080069
 int id callMeasure 0x7f08006a
@@ -2700,8 +2702,6 @@ int id end_padder 0x7f0800b7
 int id enterAlways 0x7f0800b8
 int id enterAlwaysCollapsed 0x7f0800b9
 int id et_car_capacity 0x7f0800ba
-int id et_departure_date 0x7f0800bb
-int id et_departure_time 0x7f0801f9
 int id et_destination_location 0x7f0800bc
 int id et_password 0x7f0800bd
 int id et_start_location 0x7f0800be

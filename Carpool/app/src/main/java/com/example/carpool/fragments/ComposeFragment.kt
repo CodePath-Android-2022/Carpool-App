@@ -63,7 +63,7 @@ class ComposeFragment : Fragment() {
         // fill username view with current user's username
         tvUsername.text = ParseUser.getCurrentUser().username
 
-        // to show a date selector dialogue box
+        // create an OnDateSetListener
         val dateSetListener = object: DatePickerDialog.OnDateSetListener {
             override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
                 calendar.set(Calendar.YEAR, year)
@@ -73,16 +73,13 @@ class ComposeFragment : Fragment() {
             }
         }
 
-        // set a click listener on the departureDate ET field
-        btnDepartureDate.setOnClickListener {
-            Toast.makeText(context, "departure date EditText field clicked!", Toast.LENGTH_SHORT).show()
-            // set DatePickerDialog to point to today's date when it loads up
-            DatePickerDialog(requireContext(), dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
-        } /*(object : View.OnClickListener {
+        // when the departureDate button is clicked, show DatePickerDialog that is set with OnDateSetListener
+        btnDepartureDate.setOnClickListener (object : View.OnClickListener {
             override fun onClick(view: View?) {
-
+                // set DatePickerDialog to point to today's date when it loads up
+                DatePickerDialog(requireContext(), dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show()
             }
-        })*/
+        })
 
 
         // get reference to the create carpool button view
@@ -91,8 +88,8 @@ class ComposeFragment : Fragment() {
             // grab all the info the user has inputted
             val sourceLocation = etSourceLocation.text.toString()
             val destinationLocation = etDestinationLocation.text.toString()
-            val departureDate = btnDepartureDate.text.toString()
-            val departureTime = btnDepartureTime.text.toString()
+            val departureDate = tvDepartureDate.text.toString()
+            val departureTime = tvDepartureTime.text.toString()
             val carCapacity = etCarCapacity.text.toString()
             val description = etDescription.text.toString()
             val price = etPrice.text.toString()
@@ -168,6 +165,6 @@ class ComposeFragment : Fragment() {
     private fun updateDateInView() {
         val format = "mm/dd/yyyy"
         val simpleDateFormat = SimpleDateFormat(format, Locale.US)
-        btnDepartureDate.setText(simpleDateFormat.format(calendar.time))
+        tvDepartureDate.text = simpleDateFormat.format(calendar.time)
     }
 }
