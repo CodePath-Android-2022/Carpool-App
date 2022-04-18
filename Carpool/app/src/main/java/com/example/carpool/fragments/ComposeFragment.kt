@@ -75,6 +75,9 @@ class ComposeFragment : Fragment() {
                 Toast.makeText(context, "Submitting post to server!", Toast.LENGTH_SHORT).show()
                 // submitCarpoolPostToServer(ParseUser.getCurrentUser(), sourceLocation, destinationLocation, departureDate, departureTime, carCapacity.toInt(), description, price.toFloat())
 
+                // log the info to logcat before clearing the fields
+                Log.i(TAG,  "$sourceLocation, $destinationLocation, $departureDate, $departureTime, $carCapacity, $description, $price")
+
                 // empty all edit text fields after post is saved
                 etSourceLocation.setText("")
                 etDestinationLocation.setText("")
