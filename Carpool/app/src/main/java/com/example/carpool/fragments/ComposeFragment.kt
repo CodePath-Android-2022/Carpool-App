@@ -1,7 +1,6 @@
 package com.example.carpool.fragments
 
 import android.app.DatePickerDialog
-import android.app.TimePickerDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +11,7 @@ import android.widget.*
 import com.example.carpool.CarpoolPost
 import com.example.carpool.R
 import com.parse.ParseUser
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -24,11 +24,14 @@ class ComposeFragment : Fragment() {
     private lateinit var tvUsername: TextView
     private lateinit var etSourceLocation: EditText
     private lateinit var etDestinationLocation: EditText
-    private lateinit var etDepartureDate: EditText
-    private lateinit var etDepartureTime: EditText
+    private lateinit var btnDepartureDate: Button
+    private lateinit var btnDepartureTime: Button
     private lateinit var etCarCapacity: EditText
     private lateinit var etDescription: EditText
     private lateinit var etPrice: EditText
+
+    // get instance of the calendar object
+    val calendar: Calendar = Calendar.getInstance()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -44,8 +47,8 @@ class ComposeFragment : Fragment() {
         tvUsername = view.findViewById(R.id.tv_username)
         etSourceLocation = view.findViewById(R.id.et_start_location)
         etDestinationLocation =view.findViewById(R.id.et_destination_location)
-        etDepartureDate =view.findViewById(R.id.et_departure_date)
-        etDepartureTime = view.findViewById(R.id.et_departure_time)
+        btnDepartureDate =view.findViewById(R.id.btn_departure_date)
+        btnDepartureTime = view.findViewById(R.id.btn_departure_time)
         etCarCapacity = view.findViewById(R.id.et_car_capacity)
         etDescription = view.findViewById(R.id.et_trip_description)
         etPrice = view.findViewById(R.id.et_trip_price)
@@ -53,15 +56,26 @@ class ComposeFragment : Fragment() {
         // fill username view with current user's username
         tvUsername.text = ParseUser.getCurrentUser().username
 
-        // set a click listener to the departureDate ET field
-        etDepartureDate.setOnClickListener {
-            val dateSetListener = object: DatePickerDialog.OnDateSetListener {
-                override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
-                    TODO("Not yet implemented")
-                }
-
+        // to show a date selector dialogue box
+        val dateSetListener = object: DatePickerDialog.OnDateSetListener {
+            override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, month)
+                calendar.set(Calendar.DAY_OF_MONTH, day)
+                updateDateInView()
             }
         }
+
+        // set a click listener on the departureDate ET field
+        btnDepartureDate.setOnClickListener {
+            Toast.makeText(context, "departure date EditText field clicked!", Toast.LENGTH_SHORT).show()
+            // set DatePickerDialog to point to today's date when it loads up
+            DatePickerDialog(requireContext(), dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+        } /*(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+
+            }
+        })*/
 
 
         // get reference to the create carpool button view
@@ -70,8 +84,8 @@ class ComposeFragment : Fragment() {
             // grab all the info the user has inputted
             val sourceLocation = etSourceLocation.text.toString()
             val destinationLocation = etDestinationLocation.text.toString()
-            val departureDate = etDepartureDate.text.toString()
-            val departureTime = etDepartureTime.text.toString()
+            val departureDate = btnDepartureDate.text.toString()
+            val departureTime = btnDepartureTime.text.toString()
             val carCapacity = etCarCapacity.text.toString()
             val description = etDescription.text.toString()
             val price = etPrice.text.toString()
@@ -91,8 +105,8 @@ class ComposeFragment : Fragment() {
                 // empty all edit text fields after post is saved
                 etSourceLocation.setText("")
                 etDestinationLocation.setText("")
-                etDepartureDate.setText("")
-                etDepartureTime.setText("")
+                btnDepartureDate.setText("")
+                btnDepartureTime.setText("")
                 etCarCapacity.setText("")
                 etDescription.setText("")
                 etPrice.setText("")
@@ -141,5 +155,12 @@ class ComposeFragment : Fragment() {
                 Log.e(TAG, "Something went wrong! Couldn't save post. Error message: ${exception.message}")  // todo: fix the ff error: "Something went wrong! Couldn't save post. Error message: schema mismatch for CarpoolPost.departureDate; expected Date but got String"
             }
         }
+    }
+
+    // set the format of the date
+    private fun updateDateInView() {
+        val format = "mm/dd/yyyy"
+        val simpleDateFormat = SimpleDateFormat(format, Locale.US)
+        btnDepartureDate.setText(simpleDateFormat.format(calendar.time))
     }
 }
