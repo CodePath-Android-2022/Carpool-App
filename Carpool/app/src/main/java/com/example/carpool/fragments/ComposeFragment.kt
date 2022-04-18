@@ -65,7 +65,18 @@ class ComposeFragment : Fragment() {
                 Toast.makeText(context, "Please fill all fields!", Toast.LENGTH_SHORT).show()
             }
             else if (sourceLocation.isNotEmpty() && destinationLocation.isNotEmpty() && departureDate.isNotEmpty() &&  departureTime.isNotEmpty() &&  carCapacity.isNotEmpty() &&  description.isNotEmpty() &&  price.isNotEmpty()) {  // all fields are filled
-                submitCarpoolPostToServer(ParseUser.getCurrentUser(), sourceLocation, destinationLocation, departureDate, departureTime, carCapacity.toInt(), description, price.toFloat())
+
+                Toast.makeText(context, "Submitting post to server!", Toast.LENGTH_SHORT).show()
+                // submitCarpoolPostToServer(ParseUser.getCurrentUser(), sourceLocation, destinationLocation, departureDate, departureTime, carCapacity.toInt(), description, price.toFloat())
+
+                // empty all edit text fields after post is saved
+                view.findViewById<EditText>(R.id.et_start_location).setText("")  // sourceLocation
+                view.findViewById<EditText>(R.id.et_destination_location).setText("")  // destinationLocation
+                view.findViewById<EditText>(R.id.et_departure_date).setText("")  // departureDate
+                view.findViewById<EditText>(R.id.et_departure_time).setText("")  // departureTime
+                view.findViewById<EditText>(R.id.et_car_capacity).setText("")  // carCapacity
+                view.findViewById<EditText>(R.id.et_trip_description).setText("")  // description
+                view.findViewById<EditText>(R.id.et_trip_price).setText("")  // price
             }
         }
     }
