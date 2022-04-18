@@ -12,6 +12,7 @@ class CarpoolPost : ParseObject () {
         private const val KEY_SOURCE_LOCATION: String = "sourceLocation"
         private const val KEY_DESTINATION_LOCATION: String = "destinationLocation"
         private const val KEY_DEPARTURE_DATE: String = "departureDate"
+        private const val KEY_DEPARTURE_TIME: String = "departureTime"
         private const val KEY_CAR_CAPACITY: String = "carCapacity"
         private const val KEY_DESCRIPTION: String = "description"
         private const val KEY_PRICE: String = "price"
@@ -22,7 +23,8 @@ class CarpoolPost : ParseObject () {
      *  -   user: Pointer<User>
      *  -   sourceLocation: String
      *  -   destinationLocation: String
-     *  -   departureDate: Date
+     *  -   departureDate: Date todo: change to String later, if we don't get it to work
+     *  -   departureTime: String
      *  -   carCapacity: Number
      *  -   description: String
      *  -   price: Number
@@ -45,6 +47,10 @@ class CarpoolPost : ParseObject () {
 
     fun setDepartureDate(departureDate: String) {
         put(KEY_DEPARTURE_DATE, departureDate)
+    }
+
+    fun setDepartureTime(departureTime: String) {
+        put(KEY_DEPARTURE_TIME, departureTime)
     }
 
     fun setCarCapacity(carCapacity: Int) {
@@ -77,6 +83,10 @@ class CarpoolPost : ParseObject () {
 
     fun getDepartureDate() : String? {
         return getString(KEY_DEPARTURE_DATE)
+    }
+
+    fun getDepartureTime() : String? {
+        return getString(KEY_DEPARTURE_TIME)
     }
 
     fun getCarCapacity() : Int {
