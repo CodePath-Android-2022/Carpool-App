@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.carpool.R
 
+
+/**
+ * Add functionality so users can create a new Carpool
+ */
 class ComposeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
