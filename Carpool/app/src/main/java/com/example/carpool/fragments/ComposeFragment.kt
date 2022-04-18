@@ -22,6 +22,14 @@ import java.util.*
 class ComposeFragment : Fragment() {
 
     private val TAG = "ComposeFragment"
+    private lateinit var tvUsername: TextView
+    private lateinit var etSourceLocation: EditText
+    private lateinit var etDestinationLocation: EditText
+    private lateinit var etDepartureDate: EditText
+    private lateinit var etDepartureTime: EditText
+    private lateinit var etCarCapacity: EditText
+    private lateinit var etDescription: EditText
+    private lateinit var etPrice: EditText
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -33,32 +41,30 @@ class ComposeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // get reference to all text views and edit text fields
+        tvUsername = view.findViewById(R.id.tv_username)
+        etSourceLocation = view.findViewById(R.id.et_start_location)
+        etDestinationLocation =view.findViewById(R.id.et_destination_location)
+        etDepartureDate =view.findViewById(R.id.et_departure_date)
+        etDepartureTime = view.findViewById(R.id.et_departure_time)
+        etCarCapacity = view.findViewById(R.id.et_car_capacity)
+        etDescription = view.findViewById(R.id.et_trip_description)
+        etPrice = view.findViewById(R.id.et_trip_price)
+
         // fill username view with current user's username
-        view.findViewById<TextView>(R.id.tv_username).text = ParseUser.getCurrentUser().username
+        tvUsername.text = ParseUser.getCurrentUser().username
 
         // get reference to the create carpool button view
         view.findViewById<Button>(R.id.btn_create_carpool).setOnClickListener {
 
-            // grab the start location the user has inputted
-            val sourceLocation = view.findViewById<EditText>(R.id.et_start_location).text.toString()
-
-            // grab the destination location the user has inputted
-            val destinationLocation = view.findViewById<EditText>(R.id.et_destination_location).text.toString()
-
-            // grab the departure date the user has inputted
-            val departureDate = view.findViewById<EditText>(R.id.et_departure_date).text.toString()
-
-            // grab the departure time the user has inputted
-            val departureTime = view.findViewById<EditText>(R.id.et_departure_time).text.toString()
-
-            // grab the car capacity the user has inputted
-            val carCapacity = view.findViewById<EditText>(R.id.et_car_capacity).text.toString()
-
-            // grab the trip description the user has inputted
-            val description = view.findViewById<EditText>(R.id.et_trip_description).text.toString()
-
-            // grab the price the user has inputted
-            val price = view.findViewById<EditText>(R.id.et_trip_price).text.toString()
+            // grab all the info the user has inputted
+            val sourceLocation = etSourceLocation.text.toString()
+            val destinationLocation = etDestinationLocation.text.toString()
+            val departureDate = etDepartureDate.text.toString()
+            val departureTime = etDepartureTime.text.toString()
+            val carCapacity = etCarCapacity.text.toString()
+            val description = etDescription.text.toString()
+            val price = etPrice.text.toString()
 
             // check that all fields are filled & submit info to the home page after the user has filled all required information
             if (sourceLocation.isEmpty() || destinationLocation.isEmpty() || departureDate.isEmpty() ||  departureTime.isEmpty() ||  carCapacity.isEmpty() ||  description.isEmpty() ||  price.isEmpty()) {  // some or all fields are empty
@@ -70,13 +76,13 @@ class ComposeFragment : Fragment() {
                 // submitCarpoolPostToServer(ParseUser.getCurrentUser(), sourceLocation, destinationLocation, departureDate, departureTime, carCapacity.toInt(), description, price.toFloat())
 
                 // empty all edit text fields after post is saved
-                view.findViewById<EditText>(R.id.et_start_location).setText("")  // sourceLocation
-                view.findViewById<EditText>(R.id.et_destination_location).setText("")  // destinationLocation
-                view.findViewById<EditText>(R.id.et_departure_date).setText("")  // departureDate
-                view.findViewById<EditText>(R.id.et_departure_time).setText("")  // departureTime
-                view.findViewById<EditText>(R.id.et_car_capacity).setText("")  // carCapacity
-                view.findViewById<EditText>(R.id.et_trip_description).setText("")  // description
-                view.findViewById<EditText>(R.id.et_trip_price).setText("")  // price
+                etSourceLocation.setText("")
+                etDestinationLocation.setText("")
+                etDepartureDate.setText("")
+                etDepartureTime.setText("")
+                etCarCapacity.setText("")
+                etDescription.setText("")
+                etPrice.setText("")
             }
         }
     }
