@@ -1,6 +1,7 @@
 package com.example.carpool.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.carpool.CarpoolPost
 import com.example.carpool.R
 import com.parse.ParseUser
+import java.util.*
 
 
 /**
@@ -21,6 +24,8 @@ class ComposeFragment : Fragment() {
 
         // fill username view with current user's username
         container?.findViewById<TextView>(R.id.tv_username)?.text = ParseUser.getCurrentUser().username
+
+        Log.i("ComposeFragment", "current logged in user: ${ParseUser.getCurrentUser().username}")
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_compose, container, false)
