@@ -2701,6 +2701,7 @@ int id enterAlways 0x7f0800b8
 int id enterAlwaysCollapsed 0x7f0800b9
 int id et_car_capacity 0x7f0800ba
 int id et_departure_date 0x7f0800bb
+int id et_departure_time 0x7f0801f9
 int id et_destination_location 0x7f0800bc
 int id et_password 0x7f0800bd
 int id et_start_location 0x7f0800be
@@ -2990,6 +2991,7 @@ int id transition_transform 0x7f0801d9
 int id triangle 0x7f0801da
 int id tv_car_capacity 0x7f0801db
 int id tv_departure_date 0x7f0801dc
+int id tv_departure_time 0x7f0801fa
 int id tv_destination 0x7f0801dd
 int id tv_start_location 0x7f0801de
 int id tv_trip_description 0x7f0801df

@@ -2702,6 +2702,7 @@ id enterAlways
 id enterAlwaysCollapsed
 id et_car_capacity
 id et_departure_date
+id et_departure_time
 id et_destination_location
 id et_password
 id et_start_location
@@ -2991,6 +2992,7 @@ id transition_transform
 id triangle
 id tv_car_capacity
 id tv_departure_date
+id tv_departure_time
 id tv_destination
 id tv_start_location
 id tv_trip_description
