@@ -65,7 +65,6 @@ class ComposeFragment : Fragment() {
                 Toast.makeText(context, "Please fill all fields!", Toast.LENGTH_SHORT).show()
             }
             else if (sourceLocation.isNotEmpty() && destinationLocation.isNotEmpty() && departureDate.isNotEmpty() &&  departureTime.isNotEmpty() &&  carCapacity.isNotEmpty() &&  description.isNotEmpty() &&  price.isNotEmpty()) {  // all fields are filled
-                Toast.makeText(context, "All fields are filled. Submitting post to server!", Toast.LENGTH_SHORT).show()
                 submitCarpoolPostToServer(ParseUser.getCurrentUser(), sourceLocation, destinationLocation, departureDate, departureTime, carCapacity.toInt(), description, price.toFloat())
             }
         }
@@ -109,8 +108,8 @@ class ComposeFragment : Fragment() {
                 exception.printStackTrace()
             }
             else {  // everything is good
-                Toast.makeText(context, "Successfully saved post!", Toast.LENGTH_SHORT).show()
-                Log.i(TAG, "Successfully saved post!")
+                Toast.makeText(context, "Successfully saved post in server!", Toast.LENGTH_SHORT).show()
+                Log.i(TAG, "Successfully saved post in server!")
             }
         }
     }
