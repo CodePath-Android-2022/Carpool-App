@@ -28,7 +28,9 @@ class ComposeFragment : Fragment() {
     private lateinit var etSourceLocation: EditText
     private lateinit var etDestinationLocation: EditText
     private lateinit var btnDepartureDate: Button
+    private lateinit var tvDepartureDate: TextView
     private lateinit var btnDepartureTime: Button
+    private lateinit var tvDepartureTime: TextView
     private lateinit var etCarCapacity: EditText
     private lateinit var etDescription: EditText
     private lateinit var etPrice: EditText
