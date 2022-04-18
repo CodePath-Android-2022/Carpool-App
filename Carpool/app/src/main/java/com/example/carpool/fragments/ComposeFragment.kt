@@ -21,6 +21,8 @@ import java.util.*
  */
 class ComposeFragment : Fragment() {
 
+    private val TAG = "ComposeFragment"
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_compose, container, false)
@@ -63,9 +65,43 @@ class ComposeFragment : Fragment() {
 
 
     // function to submit created carpool post to server
-    private fun submitCarpoolPost(startLocation: String, destination: String, departureDate: Date, carCapacity: Int, tripDescription: String, price: Int, user: ParseUser) {
+    private fun submitCarpoolPost(user: ParseUser, sourceLocation: String, destinationLocation: String, departureDate: String, carCapacity: Int, description: String, price: Int) {
+
+        /**
+         * WHAT'S IN THE SERVER
+         * --------------------
+         * user: Pointer<User>
+         * sourceLocation: String
+         * destinationLocation: String
+         * departureDate: Date
+         * carCapacity: Number
+         * description: String
+         * price: Number
+         */
 
         // create a Carpool post object to send to server
         val carpoolPost = CarpoolPost()
+
+        // set all fields to save
+        carpoolPost.setUser(user)
+        carpoolPost.setSourceLocation(sourceLocation)
+        carpoolPost.setDestinationLocation(destinationLocation)
+        carpoolPost.setDepartureDate(departureDate)
+        carpoolPost.setCarCapacity(carCapacity)
+        carpoolPost.setDescription(description)
+        carpoolPost.setPrice(price)
+
+        // save post to server
+        carpoolPost.saveInBackground { exception ->
+            if (exception != null) {  // then something's gone wrong
+                Toast.makeText(context, "Something went wrong! Couldn't save post.", Toast.LENGTH_SHORT).show()
+                Log.e(TAG, "Something went wrong! Couldn't save post.")
+                exception.printStackTrace()
+            }
+            else {  // everything is good
+                Toast.makeText(context, "Successfully saved post!", Toast.LENGTH_SHORT).show()
+                Log.i(TAG, "Successfully saved post!")
+            }
+        }
     }
 }
