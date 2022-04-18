@@ -76,8 +76,7 @@ class ComposeFragment : Fragment() {
                 // Toast.makeText(context, "Submitting post to server!", Toast.LENGTH_SHORT).show()
                 Log.i(TAG,  "$sourceLocation, $destinationLocation, $departureDate, $departureTime, $carCapacity, $description, $price")
 
-                // todo: currently the error message is being printed, figure it out later
-                // submitCarpoolPostToServer(ParseUser.getCurrentUser(), sourceLocation, destinationLocation, departureDate, departureTime, carCapacity.toInt(), description, price.toFloat())
+                submitCarpoolPostToServer(ParseUser.getCurrentUser(), sourceLocation, destinationLocation, departureDate, departureTime, carCapacity.toInt(), description, price.toFloat())
 
                 // empty all edit text fields after post is saved
                 etSourceLocation.setText("")
@@ -108,7 +107,7 @@ class ComposeFragment : Fragment() {
          * price: Number
          */
 
-        // create a Carpool post object to send to server
+        // create a Carpool post object to be sent to the server
         val carpoolPost = CarpoolPost()
 
         // set all fields to save
@@ -123,14 +122,13 @@ class ComposeFragment : Fragment() {
 
         // save post to server
         carpoolPost.saveInBackground { exception ->
-            if (exception != null) {  // then something's gone wrong
-                Toast.makeText(context, "Something went wrong! Couldn't save post.", Toast.LENGTH_SHORT).show()
-                Log.e(TAG, "Something went wrong! Couldn't save post.")
-                exception.printStackTrace()
-            }
-            else {  // everything is good
+            if (exception == null) {  // everything is good
                 Toast.makeText(context, "Successfully saved post in server!", Toast.LENGTH_SHORT).show()
                 Log.i(TAG, "Successfully saved post in server!")
+            }
+            else {  // then something's gone wrong
+                Toast.makeText(context, "Something went wrong! Couldn't save post.", Toast.LENGTH_SHORT).show()
+                Log.e(TAG, "Something went wrong! Couldn't save post. Error message: ${exception.message}")  // todo: fix the ff error: "Something went wrong! Couldn't save post. Error message: schema mismatch for CarpoolPost.departureDate; expected Date but got String"
             }
         }
     }
