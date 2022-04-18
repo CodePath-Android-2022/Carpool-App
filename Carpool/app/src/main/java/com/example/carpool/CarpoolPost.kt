@@ -61,7 +61,7 @@ class CarpoolPost : ParseObject () {
         put(KEY_DESCRIPTION, description)
     }
 
-    fun setPrice(price: Int) {
+    fun setPrice(price: Float) {
         put(KEY_PRICE, price)
     }
 
