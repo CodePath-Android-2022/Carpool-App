@@ -12,7 +12,7 @@ class CarpoolPost : ParseObject () {
         private const val KEY_DESTINATION: String = "destination"
         private const val KEY_DESCRIPTION: String = "description"
         private const val KEY_DEPARTURE_DATE: String = "departureDate"
-        private const val KEY_NUMBER_OF_SEATS: String = "seats"
+        private const val KEY_CAR_CAPACITY: String = "carCapacity"
         private const val KEY_PRICE: String = "price"
         private const val KEY_USER: String = "user"
     }
@@ -46,8 +46,8 @@ class CarpoolPost : ParseObject () {
         put(KEY_DEPARTURE_DATE, departureDate)
     }
 
-    fun setNumberOfSeats(seats: Int) {
-        put(KEY_NUMBER_OF_SEATS, seats)
+    fun setCarCapacity(seats: Int) {
+        put(KEY_CAR_CAPACITY, seats)
     }
 
     fun setPrice(price: String) {
@@ -78,8 +78,8 @@ class CarpoolPost : ParseObject () {
         return getString(KEY_DEPARTURE_DATE)
     }
 
-    fun getNumberOfSeats() : Int {
-        return getInt(KEY_NUMBER_OF_SEATS)
+    fun getCarCapacity() : Int {
+        return getInt(KEY_CAR_CAPACITY)
     }
 
     fun getPrice() : String? {
