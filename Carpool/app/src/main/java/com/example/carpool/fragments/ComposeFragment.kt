@@ -18,9 +18,12 @@ import java.util.*
 /**
  * Add functionality so users can create a new Carpool
  */
+
+private const val TAG = "ComposeFragment"
+
 class ComposeFragment : Fragment() {
 
-    private val TAG = "ComposeFragment"
+    // declare variables for views in xml layout file
     private lateinit var tvUsername: TextView
     private lateinit var etSourceLocation: EditText
     private lateinit var etDestinationLocation: EditText
