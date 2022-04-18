@@ -51,9 +51,11 @@ class ComposeFragment : Fragment() {
         // get reference to all text views and edit text fields
         tvUsername = view.findViewById(R.id.tv_username)
         etSourceLocation = view.findViewById(R.id.et_start_location)
-        etDestinationLocation =view.findViewById(R.id.et_destination_location)
-        btnDepartureDate =view.findViewById(R.id.btn_departure_date)
+        etDestinationLocation = view.findViewById(R.id.et_destination_location)
+        btnDepartureDate = view.findViewById(R.id.btn_departure_date)
+        tvDepartureDate = view.findViewById(R.id.tv_departure_date)
         btnDepartureTime = view.findViewById(R.id.btn_departure_time)
+        tvDepartureTime = view.findViewById(R.id.tv_departure_time)
         etCarCapacity = view.findViewById(R.id.et_car_capacity)
         etDescription = view.findViewById(R.id.et_trip_description)
         etPrice = view.findViewById(R.id.et_trip_price)
