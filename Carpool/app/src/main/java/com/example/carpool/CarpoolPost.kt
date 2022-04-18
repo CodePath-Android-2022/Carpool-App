@@ -31,7 +31,7 @@ class CarpoolPost : ParseObject () {
 
     /*  Setters  */
 
-    fun setUser(user: User){
+    fun setUser(user: ParseUser){
         put(KEY_USER, user)
     }
 
