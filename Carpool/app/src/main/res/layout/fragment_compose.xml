@@ -85,13 +85,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_destination"
         app:layout_constraintStart_toStartOf="@+id/tv_start_location" />
 
-    <EditText
-        android:id="@+id/et_departure_date"
+    <TextView
+        android:id="@+id/tv_departure_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="mm/dd/yyyy"
-        android:inputType="date"
+        android:textSize="18sp"
         app:layout_constraintTop_toTopOf="@+id/btn_departure_date"
         app:layout_constraintEnd_toEndOf="@+id/et_start_location"
         app:layout_constraintBottom_toBottomOf="@+id/btn_departure_date"
@@ -107,13 +107,13 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_departure_date"
         app:layout_constraintStart_toStartOf="@+id/tv_start_location" />
 
-    <EditText
-        android:id="@+id/et_departure_time"
+    <TextView
+        android:id="@+id/tv_departure_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="00:00"
-        android:inputType="time"
+        android:textSize="18sp"
         app:layout_constraintTop_toTopOf="@+id/btn_departure_time"
         app:layout_constraintEnd_toEndOf="@+id/et_start_location"
         app:layout_constraintBottom_toBottomOf="@+id/btn_departure_time"
