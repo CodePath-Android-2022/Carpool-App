@@ -38,16 +38,20 @@ class ComposeFragment : Fragment() {
 
         // get reference to the create carpool button view
         view.findViewById<Button>(R.id.btn_create_carpool).setOnClickListener {
-            // todo: submit info to the home page after the user has filled all required information
+
+            val user = ParseUser.getCurrentUser().username
 
             // grab the start location the user has inputted
-            val startLocation = view.findViewById<EditText>(R.id.et_start_location).text.toString()
+            val sourceLocation = view.findViewById<EditText>(R.id.et_start_location).text.toString()
 
             // grab the destination location the user has inputted
-            val destination = view.findViewById<EditText>(R.id.et_destination_location).text.toString()
+            val destinationLocation = view.findViewById<EditText>(R.id.et_destination_location).text.toString()
 
             // grab the departure date the user has inputted
             val departureDate = view.findViewById<EditText>(R.id.et_departure_date).text.toString()
+
+            // grab the departure time the user has inputted
+            val departureTime = view.findViewById<EditText>(R.id.et_departure_time).text.toString()
 
             // grab the car capacity the user has inputted
             val carCapacity = view.findViewById<EditText>(R.id.et_car_capacity).text.toString()
@@ -59,13 +63,15 @@ class ComposeFragment : Fragment() {
             val price = view.findViewById<EditText>(R.id.et_trip_price).text.toString()
 
 
-            Toast.makeText(context, "Create Carpool Button Clicked!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Create Carpool Button Clicked!", Toast.LENGTH_SHORT).show()  // just make a toast for now. todo: delete later
+
+            // todo: submit info to the home page after the user has filled all required information
         }
     }
 
 
     // function to submit created carpool post to server
-    private fun submitCarpoolPost(user: ParseUser, sourceLocation: String, destinationLocation: String, departureDate: String, carCapacity: Int, description: String, price: Int) {
+    private fun submitCarpoolPost(user: ParseUser, sourceLocation: String, destinationLocation: String, departureDate: String, departureTime: String, carCapacity: Int, description: String, price: Int) {
 
         /**
          * WHAT'S IN THE SERVER
@@ -74,6 +80,7 @@ class ComposeFragment : Fragment() {
          * sourceLocation: String
          * destinationLocation: String
          * departureDate: Date
+         * departureTime: String
          * carCapacity: Number
          * description: String
          * price: Number
@@ -87,6 +94,7 @@ class ComposeFragment : Fragment() {
         carpoolPost.setSourceLocation(sourceLocation)
         carpoolPost.setDestinationLocation(destinationLocation)
         carpoolPost.setDepartureDate(departureDate)
+        carpoolPost.setDepartureTime(departureTime)
         carpoolPost.setCarCapacity(carCapacity)
         carpoolPost.setDescription(description)
         carpoolPost.setPrice(price)
