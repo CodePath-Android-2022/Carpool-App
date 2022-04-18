@@ -73,10 +73,10 @@ class ComposeFragment : Fragment() {
             else if (sourceLocation.isNotEmpty() && destinationLocation.isNotEmpty() && departureDate.isNotEmpty() &&  departureTime.isNotEmpty() &&  carCapacity.isNotEmpty() &&  description.isNotEmpty() &&  price.isNotEmpty()) {  // all fields are filled
 
                 // Toast & log the user's typed info to logcat before clearing the fields
-                Toast.makeText(context, "Submitting post to server!", Toast.LENGTH_SHORT).show()
+                // Toast.makeText(context, "Submitting post to server!", Toast.LENGTH_SHORT).show()
                 Log.i(TAG,  "$sourceLocation, $destinationLocation, $departureDate, $departureTime, $carCapacity, $description, $price")
 
-                // submitCarpoolPostToServer(ParseUser.getCurrentUser(), sourceLocation, destinationLocation, departureDate, departureTime, carCapacity.toInt(), description, price.toFloat())
+                submitCarpoolPostToServer(ParseUser.getCurrentUser(), sourceLocation, destinationLocation, departureDate, departureTime, carCapacity.toInt(), description, price.toFloat())
 
                 // empty all edit text fields after post is saved
                 etSourceLocation.setText("")
