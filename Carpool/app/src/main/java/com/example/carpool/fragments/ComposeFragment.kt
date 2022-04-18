@@ -1,15 +1,14 @@
 package com.example.carpool.fragments
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.carpool.CarpoolPost
 import com.example.carpool.R
 import com.parse.ParseUser
@@ -53,6 +52,17 @@ class ComposeFragment : Fragment() {
 
         // fill username view with current user's username
         tvUsername.text = ParseUser.getCurrentUser().username
+
+        // set a click listener to the departureDate ET field
+        etDepartureDate.setOnClickListener {
+            val dateSetListener = object: DatePickerDialog.OnDateSetListener {
+                override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
+                    TODO("Not yet implemented")
+                }
+
+            }
+        }
+
 
         // get reference to the create carpool button view
         view.findViewById<Button>(R.id.btn_create_carpool).setOnClickListener {
