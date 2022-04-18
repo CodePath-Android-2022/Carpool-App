@@ -16,7 +16,7 @@ id action_compose
 id action_home
 id action_profile
 id bottom_navigation
-id button
+id btn_create_carpool
 id et_car_capacity
 id et_departure_date
 id et_destination_location
