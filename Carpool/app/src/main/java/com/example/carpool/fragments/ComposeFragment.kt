@@ -37,7 +37,7 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     private lateinit var etPrice: EditText
 
     // get instance of the calendar object
-    val calendar: Calendar = Calendar.getInstance()
+    private val calendar: Calendar = Calendar.getInstance()
 
     // create variables for the date and time info
     var day = 0
