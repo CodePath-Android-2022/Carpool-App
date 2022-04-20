@@ -1,24 +1,22 @@
 package com.example.carpool.fragments
 
-import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.Fragment
 import com.example.carpool.CarpoolPost
 import com.example.carpool.R
 import com.parse.ParseUser
-import java.text.SimpleDateFormat
 import java.util.*
 
 
 /**
- * Add functionality so users can create a new Carpool
+ * Add functionality so users can create a new Carpool post and submit the post to the server to be displayed on the home page
  */
 
 private const val TAG = "ComposeFragment"
@@ -36,9 +34,7 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     private lateinit var etCarCapacity: EditText
     private lateinit var etDescription: EditText
     private lateinit var etPrice: EditText
-
-    // get instance of the calendar object
-    private val calendar: Calendar = Calendar.getInstance()
+    private lateinit var btnCreateCarpool: Button
 
     // create variables for the date and time info
     var day = 0
@@ -75,79 +71,25 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         etCarCapacity = view.findViewById(R.id.et_car_capacity)
         etDescription = view.findViewById(R.id.et_trip_description)
         etPrice = view.findViewById(R.id.et_trip_price)
-
-
-        pickDate()
-        pickTime()
-
-
-        // declare variables to hold the current time
-        var currentHour: Int = 0
-        var currentMinute: Int = 0
-        var amPm: String = ""
+        btnCreateCarpool = view.findViewById(R.id.btn_create_carpool)
 
 
         // fill username view with current user's username
         tvUsername.text = ParseUser.getCurrentUser().username
 
-        /*
-        // create an OnDateSetListener
-        val dateSetListener = object: DatePickerDialog.OnDateSetListener {
-            override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
-                calendar.set(Calendar.YEAR, year)
-                calendar.set(Calendar.MONTH, month)
-                calendar.set(Calendar.DAY_OF_WEEK, day)
-                updateDateInView()
-            }
+        // set a click listener on the departure date button to display the date picker
+        btnDepartureDate.setOnClickListener {
+            pickDate()
         }
 
-        // when the departureDate button is clicked, show DatePickerDialog that is set with OnDateSetListener
-        btnDepartureDate.setOnClickListener (object : View.OnClickListener {
-            override fun onClick(view: View?) {
-                // set DatePickerDialog to point to today's date when it loads up
-                val datePickerDialog = DatePickerDialog(requireContext(), dateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
-                datePickerDialog.show()
-            }
-        })
-        */
-
-        /*
-        // when the departureTime button is clicked, show the TimePickerDialog that is set with OnTimeSetListener
-        btnDepartureTime.setOnClickListener (object : View.OnClickListener {
-            override fun onClick(view: View?) {
-
-                // set the time chosen by the user
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY)
-                currentMinute = calendar.get(Calendar.MINUTE)
-
-                // set TimePickerDialog to point to current time when it loads up
-                val timePickerDialog: TimePickerDialog = TimePickerDialog(requireContext(), object: TimePickerDialog.OnTimeSetListener {
-                    override fun onTimeSet(timePicker: TimePicker, hourOfDay: Int, minutes: Int) {
-                         calendar.set(Calendar.HOUR, hourOfDay)
-                         calendar.set(Calendar.MINUTE, minutes)
-
-                        if (hourOfDay >= 12) {
-                            amPm = "pm"
-                        }
-                        else {
-                            amPm = "am"
-                        }
-
-                        // set the selected time in the text view
-                        val chosenTime = String.format("%02d:%02d", currentHour, currentMinute) + " " + amPm
-                        tvDepartureTime.text = chosenTime
-                    }
-                }, currentHour, currentMinute, false)
-
-                // display the time picker dialog
-                timePickerDialog.show()
-            }
-        })
-        */
+        // set a click listener on the departure time button to display the time picker
+        btnDepartureTime.setOnClickListener {
+            pickTime()
+        }
 
 
         // get reference to the create carpool button view
-        view.findViewById<Button>(R.id.btn_create_carpool).setOnClickListener {
+        btnCreateCarpool.setOnClickListener {
 
             // grab all the info the user has inputted
             val sourceLocation = etSourceLocation.text.toString()
@@ -164,10 +106,10 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             }
             else if (sourceLocation.isNotEmpty() && destinationLocation.isNotEmpty() && departureDate.isNotEmpty() &&  departureTime.isNotEmpty() &&  carCapacity.isNotEmpty() &&  description.isNotEmpty() &&  price.isNotEmpty()) {  // all fields are filled
 
-                // Toast & log the user's typed info to logcat before clearing the fields
-                // Toast.makeText(context, "Submitting post to server!", Toast.LENGTH_SHORT).show()
+                // log the user's typed info to logcat before submitting the post to server and clearing all fields
                 Log.i(TAG,  "$sourceLocation, $destinationLocation, $departureDate, $departureTime, $carCapacity, $description, $price")
 
+                // send the created post to the server
                 submitCarpoolPostToServer(ParseUser.getCurrentUser(), sourceLocation, destinationLocation, departureDate, departureTime, carCapacity.toInt(), description, price.toFloat())
 
                 // empty all edit text fields after post is saved
@@ -225,13 +167,6 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         }
     }
 
-    // set the format of the date
-    private fun updateDateInView() {
-        val format = "mm/dd/yyyy"
-        val simpleDateFormat = SimpleDateFormat(format, Locale.US)
-        tvDepartureDate.text = simpleDateFormat.format(calendar.time)
-    }
-
 
     private fun getDateTimeCalendar() {
         val calendar = Calendar.getInstance()
@@ -243,17 +178,13 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     }
 
     private fun pickDate() {
-        btnDepartureDate.setOnClickListener {
-            getDateTimeCalendar()
-            DatePickerDialog(requireContext(), this, year, month, day).show()
-        }
+        getDateTimeCalendar()
+        DatePickerDialog(requireContext(), this, year, month, day).show()
     }
 
     private fun pickTime() {
-        btnDepartureTime.setOnClickListener {
-            getDateTimeCalendar()
-            TimePickerDialog(requireContext(), this, hour, minute, true).show()
-        }
+        getDateTimeCalendar()
+        TimePickerDialog(requireContext(), this, hour, minute, true).show()
     }
 
     override fun onDateSet(datePicker: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
