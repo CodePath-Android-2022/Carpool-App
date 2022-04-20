@@ -1,5 +1,6 @@
 package com.example.carpool.fragments
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
@@ -77,7 +78,7 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
 
         pickDate()  //  todo: move to the appropriate place later
-        // pickTime()  //  todo: move to the appropriate place later
+        pickTime()  //  todo: move to the appropriate place later
 
 
         // declare variables to hold the current time
@@ -244,7 +245,6 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     private fun pickDate() {
         btnDepartureDate.setOnClickListener {
             getDateTimeCalendar()
-
             DatePickerDialog(requireContext(), this, year, month, day).show()
         }
     }
@@ -252,8 +252,7 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     private fun pickTime() {
         btnDepartureTime.setOnClickListener {
             getDateTimeCalendar()
-
-            TimePickerDialog(requireContext(), this, hour, minute, false).show()
+            TimePickerDialog(requireContext(), this, hour, minute, true).show()
         }
     }
 
@@ -264,12 +263,16 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
         getDateTimeCalendar()
 
-        TimePickerDialog(requireContext(), this, hour, minute, true).show()
+        val monthNames = arrayOf("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+        tvDepartureDate.text = "${monthNames.get(savedMonth)} $savedDay $savedYear"
     }
 
     override fun onTimeSet(timePicker: TimePicker?, hourOfDay: Int, minute: Int) {
         savedHour = hourOfDay
         savedMinute = minute
-        tvDepartureTime.text = "$savedMonth/$savedDay/$savedYear\n Hour: $savedHour Minute: $savedMinute"
+
+        getDateTimeCalendar()
+
+        tvDepartureTime.text = String.format("%2d:%2d", savedHour, savedMinute)
     }
 }
