@@ -77,8 +77,8 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         etPrice = view.findViewById(R.id.et_trip_price)
 
 
-        pickDate()  //  todo: move to the appropriate place later
-        pickTime()  //  todo: move to the appropriate place later
+        pickDate()
+        pickTime()
 
 
         // declare variables to hold the current time
