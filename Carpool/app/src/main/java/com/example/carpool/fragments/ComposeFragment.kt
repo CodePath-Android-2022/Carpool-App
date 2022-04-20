@@ -273,6 +273,17 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
         getDateTimeCalendar()
 
-        tvDepartureTime.text = String.format("%2d:%2d", savedHour, savedMinute)
+        if (savedHour in 0..9 && savedMinute !in 0..9) {
+            tvDepartureTime.text = "0"+savedHour+":"+savedMinute
+        }
+        else if (savedMinute in 0..9 && savedHour !in 0..9) {
+            tvDepartureTime.text = ""+savedHour+":0"+savedMinute
+        }
+        else if (savedHour in 0..9 && savedMinute in 0..9) {
+            tvDepartureTime.text = "0"+savedHour+":0"+savedMinute
+        }
+        else {
+            tvDepartureTime.text = "$savedHour:$savedMinute"
+        }
     }
 }
