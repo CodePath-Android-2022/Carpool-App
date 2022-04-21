@@ -162,7 +162,7 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             }
             else {  // then something's gone wrong
                 Toast.makeText(context, "Something went wrong! Couldn't save post.", Toast.LENGTH_SHORT).show()
-                Log.e(TAG, "Something went wrong! Couldn't save post. Error message: ${exception.message}")  // todo: fix the ff error: "Something went wrong! Couldn't save post. Error message: schema mismatch for CarpoolPost.departureDate; expected Date but got String"
+                Log.e(TAG, "Something went wrong! Couldn't save post. Error message: ${exception.message}")
             }
         }
     }
