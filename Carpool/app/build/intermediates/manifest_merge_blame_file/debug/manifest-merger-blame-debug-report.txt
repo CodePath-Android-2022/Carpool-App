@@ -6,81 +6,81 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml
+8-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="32" />
-9-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml
+9-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-11-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:5:5-78
-11-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:5:22-76
+11-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:5:5-78
+11-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:5:22-76
 12    <uses-permission android:name="android.permission.INTERNET" />
-12-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:6:5-66
-12-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:6:22-64
+12-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:6:5-66
+12-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:6:22-64
 13
 14    <!-- Include the Theme.MaterialComponents.Light.NoActionBar -->
 15    <application
-15-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:9:5-41:19
+15-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:9:5-41:19
 16        android:name="com.example.carpool.CarpoolApplication"
-16-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:10:9-43
+16-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:10:9-43
 17        android:allowBackup="true"
-17-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:11:9-35
+17-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:11:9-35
 18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 18-->[androidx.core:core:1.7.0] C:\Users\Odaib\.gradle\caches\transforms-3\adacc4bbdca3c037c01e5031782c646c\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 19        android:debuggable="true"
 20        android:icon="@mipmap/ic_launcher"
-20-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:12:9-43
+20-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:12:9-43
 21        android:label="@string/app_name"
-21-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:13:9-41
+21-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:13:9-41
 22        android:roundIcon="@mipmap/ic_launcher_round"
-22-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:14:9-54
+22-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:14:9-54
 23        android:supportsRtl="true"
-23-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:15:9-35
+23-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:15:9-35
 24        android:testOnly="true"
 25        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
-25-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:16:9-74
+25-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:16:9-74
 26        <activity
-26-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:17:9-25:20
+26-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:17:9-25:20
 27            android:name="com.example.carpool.LoginActivity"
-27-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:18:13-42
+27-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:18:13-42
 28            android:exported="true" >
-28-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:19:13-36
+28-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:19:13-36
 29            <intent-filter>
-29-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:20:13-24:29
+29-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:20:13-24:29
 30                <action android:name="android.intent.action.MAIN" />
-30-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:21:17-69
-30-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:21:25-66
+30-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:21:17-69
+30-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:21:25-66
 31
 32                <category android:name="android.intent.category.LAUNCHER" />
-32-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:23:17-77
-32-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:23:27-74
+32-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:23:17-77
+32-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:23:27-74
 33            </intent-filter>
 34        </activity>
 35        <activity
-35-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:26:9-29:20
+35-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:26:9-29:20
 36            android:name="com.example.carpool.MainActivity"
-36-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:27:13-41
+36-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:27:13-41
 37            android:exported="true" >
-37-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:28:13-36
+37-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:28:13-36
 38        </activity>
 39
 40        <meta-data
-40-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:31:9-33:59
+40-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:31:9-33:59
 41            android:name="com.parse.SERVER_URL"
-41-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:32:13-48
+41-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:32:13-48
 42            android:value="@string/back4app_server_url" />
-42-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:33:13-56
+42-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:33:13-56
 43        <meta-data
-43-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:34:9-36:55
+43-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:34:9-36:55
 44            android:name="com.parse.APPLICATION_ID"
-44-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:35:13-52
+44-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:35:13-52
 45            android:value="@string/back4app_app_id" />
-45-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:36:13-52
+45-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:36:13-52
 46        <meta-data
-46-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:37:9-39:59
+46-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:37:9-39:59
 47            android:name="com.parse.CLIENT_KEY"
-47-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:38:13-48
+47-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:38:13-48
 48            android:value="@string/back4app_client_key" />
-48-->C:\Users\Odaib\Desktop\Spring 2022\CodePath\Carpool Project\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:39:13-56
+48-->C:\Users\Odaib\Desktop\Spring 2022\Android\Carpool-App\Carpool\app\src\main\AndroidManifest.xml:39:13-56
 49
 50        <provider
 50-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Odaib\.gradle\caches\transforms-3\0598df94f460c67e853f90789c9d40d1\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
