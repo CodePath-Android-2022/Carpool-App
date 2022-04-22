@@ -8,8 +8,11 @@ color teal_200
 color teal_700
 color white
 drawable ic_baseline_add_24
+drawable ic_baseline_directions_car_24
+drawable ic_baseline_explore_24
 drawable ic_baseline_home_24
 drawable ic_baseline_login_24
+drawable ic_baseline_pending_actions_24
 drawable ic_baseline_person_24
 drawable ic_baseline_search_24
 drawable ic_launcher_background
@@ -45,11 +48,15 @@ id tv_start_location
 id tv_trip_description
 id tv_trip_price
 id tv_username
+id viewPager
 layout activity_login
 layout activity_main
 layout fragment_compose
+layout fragment_explore
 layout fragment_feed
+layout fragment_pending
 layout fragment_profile
+layout fragment_rides
 layout fragment_search
 menu menu_bottom_navigation
 menu top_app_bar

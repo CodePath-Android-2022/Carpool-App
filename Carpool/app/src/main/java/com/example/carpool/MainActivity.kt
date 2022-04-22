@@ -15,6 +15,7 @@ import com.example.carpool.fragments.SearchFragment
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.tabs.TabLayout
 import com.parse.ParseUser
 
 class MainActivity : AppCompatActivity() {
@@ -48,6 +49,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
+
+
         bottomNavigationView.setOnItemSelectedListener { item ->
              var fragmentToDisplay: Fragment? = null
             when (item.itemId) {
@@ -64,12 +68,6 @@ class MainActivity : AppCompatActivity() {
                     fragmentToDisplay = ComposeFragment()
                     Toast.makeText(this, "Compose Ride", Toast.LENGTH_SHORT).show()
                 }
-                /*
-                R.id.action_profile -> {
-                    fragmentToDisplay = ProfileFragment()
-                    Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
-                }
-                 */
             }
 
             if (fragmentToDisplay != null) {
