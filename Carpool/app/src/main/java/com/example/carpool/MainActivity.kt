@@ -1,8 +1,10 @@
 package com.example.carpool
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -13,13 +15,12 @@ import com.example.carpool.fragments.SearchFragment
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.parse.ParseUser
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
 
         val fragmentManager: FragmentManager = supportFragmentManager
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
@@ -34,8 +35,12 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.action_signout -> {
-                    // Handle signout icon press
-                    Toast.makeText(this,"Sign out",Toast.LENGTH_SHORT).show();
+                    ParseUser.logOut()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    Toast.makeText(this, "Successfully logged out", Toast.LENGTH_SHORT).show()
+                    startActivity(intent)
+                    finish()
+
                     Log.i(TAG, "Sign out was clicked")
                     true
                 }
@@ -75,6 +80,7 @@ class MainActivity : AppCompatActivity() {
 
         // Set default selection
         bottomNavigationView.selectedItemId = R.id.action_home
+
     }
 
     companion object{
