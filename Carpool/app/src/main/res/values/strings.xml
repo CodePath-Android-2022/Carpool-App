@@ -9,5 +9,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="compose_fragment">Compose Carpool Screen</string>
     <string name="profile_fragment">Profile Page</string>
-    <string name="feed_fragment"> Home Feed Page</string>
+    <string name="feed_fragment">  Explore </string>
+    <string name="page_title">Carpool</string>
+    <string name="signout_description">Sign out</string>
+    <string name="profileIcon_description">Profile</string>>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
