@@ -103,7 +103,7 @@ class ProfileActivity : AppCompatActivity() {
         val etUsername = alertLayout.findViewById<EditText>(R.id.et_username)
         val alert: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this)
         alert.setTitle("Name Edit")
-        // this is set the view from XML inside AlertDialog
+        // this is set the view from XML inside AlertDialog.
         alert.setView(alertLayout)
         // disallow cancel of AlertDialog on click of back button and outside touch
         alert.setCancelable(false)
