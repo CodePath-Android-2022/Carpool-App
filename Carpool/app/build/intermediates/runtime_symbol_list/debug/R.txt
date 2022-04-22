@@ -2730,6 +2730,7 @@ int id continuousVelocity 0x7f080090
 int id coordinator 0x7f080091
 int id cos 0x7f080092
 int id counterclockwise 0x7f080093
+int id createAccount_button 0x7f080207
 int id currentState 0x7f080094
 int id custom 0x7f080095
 int id customPanel 0x7f080096
@@ -2776,7 +2777,12 @@ int id enterAlways 0x7f0800be
 int id enterAlwaysCollapsed 0x7f0800bf
 int id et_car_capacity 0x7f0800c0
 int id et_destination_location 0x7f0800c1
+int id et_firstName 0x7f080208
+int id et_lastName 0x7f080209
 int id et_password 0x7f0800c2
+int id et_signup_email 0x7f08020a
+int id et_signup_password 0x7f08020b
+int id et_signup_username 0x7f08020c
 int id et_start_location 0x7f0800c3
 int id et_trip_description 0x7f0800c4
 int id et_trip_price 0x7f0800c5
@@ -2945,6 +2951,7 @@ int id radio 0x7f080167
 int id ratio 0x7f080168
 int id rectangles 0x7f080169
 int id recycler_view 0x7f08016a
+int id register_button 0x7f08020d
 int id reverseSawtooth 0x7f08016b
 int id right 0x7f08016c
 int id rightToLeft 0x7f08016d
@@ -3044,6 +3051,7 @@ int id textSpacerNoButtons 0x7f0801ca
 int id textSpacerNoTitle 0x7f0801cb
 int id textStart 0x7f0801cc
 int id textTop 0x7f0801cd
+int id textView 0x7f08020e
 int id text_input_end_icon 0x7f0801ce
 int id text_input_error_icon 0x7f0801cf
 int id text_input_start_icon 0x7f0801d0
@@ -3070,6 +3078,7 @@ int id transition_position 0x7f0801e4
 int id transition_scene_layoutid_cache 0x7f0801e5
 int id transition_transform 0x7f0801e6
 int id triangle 0x7f0801e7
+int id tv_Sign_In 0x7f08020f
 int id tv_car_capacity 0x7f0801e8
 int id tv_departure_date 0x7f0801e9
 int id tv_departure_time 0x7f0801ea
@@ -3188,6 +3197,7 @@ int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
 int layout activity_login 0x7f0b001c
 int layout activity_main 0x7f0b001d
+int layout activity_register 0x7f0b0098
 int layout custom_dialog 0x7f0b001e
 int layout design_bottom_navigation_item 0x7f0b001f
 int layout design_bottom_sheet_dialog 0x7f0b0020

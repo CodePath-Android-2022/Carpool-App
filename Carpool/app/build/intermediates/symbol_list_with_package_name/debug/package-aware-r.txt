@@ -2731,6 +2731,7 @@ id continuousVelocity
 id coordinator
 id cos
 id counterclockwise
+id createAccount_button
 id currentState
 id custom
 id customPanel
@@ -2777,7 +2778,12 @@ id enterAlways
 id enterAlwaysCollapsed
 id et_car_capacity
 id et_destination_location
+id et_firstName
+id et_lastName
 id et_password
+id et_signup_email
+id et_signup_password
+id et_signup_username
 id et_start_location
 id et_trip_description
 id et_trip_price
@@ -2946,6 +2952,7 @@ id radio
 id ratio
 id rectangles
 id recycler_view
+id register_button
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3045,6 +3052,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3071,6 +3079,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_Sign_In
 id tv_car_capacity
 id tv_departure_date
 id tv_departure_time
@@ -3189,6 +3198,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_login
 layout activity_main
+layout activity_register
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

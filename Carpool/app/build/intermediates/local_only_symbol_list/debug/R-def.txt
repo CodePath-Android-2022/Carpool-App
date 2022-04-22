@@ -28,9 +28,15 @@ id bottom_navigation
 id btn_create_carpool
 id btn_departure_date
 id btn_departure_time
+id createAccount_button
 id et_car_capacity
 id et_destination_location
+id et_firstName
+id et_lastName
 id et_password
+id et_signup_email
+id et_signup_password
+id et_signup_username
 id et_start_location
 id et_trip_description
 id et_trip_price
@@ -38,8 +44,11 @@ id et_username
 id flContainer
 id ib_user_profile
 id login_button
+id register_button
 id tabs
+id textView
 id topAppBar
+id tv_Sign_In
 id tv_car_capacity
 id tv_departure_date
 id tv_departure_time
@@ -51,6 +60,7 @@ id tv_username
 id viewPager
 layout activity_login
 layout activity_main
+layout activity_register
 layout fragment_compose
 layout fragment_explore
 layout fragment_feed
