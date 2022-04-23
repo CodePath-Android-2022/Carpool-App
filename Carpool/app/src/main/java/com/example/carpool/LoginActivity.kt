@@ -3,11 +3,9 @@ package com.example.carpool
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.parse.ParseObject
 import com.parse.ParseUser
 
 class LoginActivity : AppCompatActivity() {
@@ -24,8 +22,12 @@ class LoginActivity : AppCompatActivity() {
         findViewById<Button>(R.id.login_button).setOnClickListener {
             val username = findViewById<EditText>(R.id.et_username).text.toString()
             val password = findViewById<EditText>(R.id.et_password).text.toString()
-
             loginUser(username, password)
+        }
+
+        findViewById<Button>(R.id.createAccount_button).setOnClickListener {
+            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 
