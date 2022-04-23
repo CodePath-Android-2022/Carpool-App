@@ -46,9 +46,11 @@ id ib_user_profile
 id login_button
 id register_button
 id tabs
-id textView
+id textView2
 id topAppBar
 id tv_Sign_In
+id tv_Signin
+id tv_Signup_text
 id tv_car_capacity
 id tv_departure_date
 id tv_departure_time
