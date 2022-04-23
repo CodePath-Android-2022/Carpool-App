@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.parse.ParseUser
 
@@ -25,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
             loginUser(username, password)
         }
 
-        findViewById<Button>(R.id.createAccount_button).setOnClickListener {
+        findViewById<TextView>(R.id.createAccount_button).setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
