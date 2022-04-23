@@ -26,7 +26,8 @@ Creating a login page to allow users to sign up to create a new account
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
+<img src='Carpool_week2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='progress_week2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 # Week 7
