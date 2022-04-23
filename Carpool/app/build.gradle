@@ -49,5 +49,9 @@ dependencies {
     //For toolbar
     implementation 'androidx.appcompat:appcompat:1.4.1'
 
+    //glide for images
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
 
 }

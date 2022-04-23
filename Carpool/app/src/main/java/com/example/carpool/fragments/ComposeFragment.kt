@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.carpool.CarpoolPost
 import com.example.carpool.R
 import com.parse.ParseUser
@@ -76,8 +77,12 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         userImage = view.findViewById(R.id.ib_user_profile)
 
         // fill username view with current user's username
-        tvUsername.text = ParseUser.getCurrentUser().username
-        //userImage.setBackgroundResource()
+        val user = ParseUser.getCurrentUser()
+        tvUsername.text = user.username
+
+        //load user profile image
+        val userParseImage = user.getParseFile("profileImg")
+        Glide.with(this).load(userParseImage?.url).into(userImage);
 
         // set a click listener on the departure date button to display the date picker
         btnDepartureDate.setOnClickListener {
