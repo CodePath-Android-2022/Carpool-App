@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.parse.ParseUser
 
@@ -21,6 +22,12 @@ class RegisterActivity : AppCompatActivity() {
             val password = findViewById<EditText>(R.id.et_signup_password).text.toString()
             val username = findViewById<EditText>(R.id.et_signup_username).text.toString()
             signUpUser(username, firstName, lastName, email, password)
+        }
+
+        findViewById<TextView>(R.id.tv_Signin).setOnClickListener {
+            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
