@@ -3371,11 +3371,11 @@ int string compose_fragment 0x7f0f0029
 int string copy 0x7f0f002a
 int string error_icon_content_description 0x7f0f002b
 int string expand_button_title 0x7f0f002c
+int string exploreText 0x7f0f0098
 int string exposed_dropdown_menu_content_description 0x7f0f002d
 int string fab_transformation_scrim_behavior 0x7f0f002e
 int string fab_transformation_sheet_behavior 0x7f0f002f
 int string feed_fragment 0x7f0f0030
-int string hello_blank_fragment 0x7f0f0031
 int string hide_bottom_view_on_scroll_behavior 0x7f0f0032
 int string home 0x7f0f0033
 int string icon_content_description 0x7f0f0034
@@ -3468,10 +3468,13 @@ int string path_password_eye 0x7f0f008a
 int string path_password_eye_mask_strike_through 0x7f0f008b
 int string path_password_eye_mask_visible 0x7f0f008c
 int string path_password_strike_through 0x7f0f008d
+int string pendingText 0x7f0f0099
 int string preference_copied 0x7f0f008e
 int string profile 0x7f0f008f
 int string profileIcon_description 0x7f0f0090
 int string profile_fragment 0x7f0f0091
+int string ridesText 0x7f0f009a
+int string searchText 0x7f0f009b
 int string search_menu_title 0x7f0f0092
 int string signout_description 0x7f0f0093
 int string status_bar_notification_info_overflow 0x7f0f0094

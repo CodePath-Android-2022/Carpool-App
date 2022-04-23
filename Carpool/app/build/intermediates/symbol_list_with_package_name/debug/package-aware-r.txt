@@ -3372,11 +3372,11 @@ string compose_fragment
 string copy
 string error_icon_content_description
 string expand_button_title
+string exploreText
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string feed_fragment
-string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string home
 string icon_content_description
@@ -3469,10 +3469,13 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string pendingText
 string preference_copied
 string profile
 string profileIcon_description
 string profile_fragment
+string ridesText
+string searchText
 string search_menu_title
 string signout_description
 string status_bar_notification_info_overflow

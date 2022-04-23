@@ -78,12 +78,15 @@ string back4app_client_key
 string back4app_server_url
 string compose
 string compose_fragment
+string exploreText
 string feed_fragment
-string hello_blank_fragment
 string home
 string page_title
+string pendingText
 string profile
 string profileIcon_description
 string profile_fragment
+string ridesText
+string searchText
 string signout_description
 style Theme.Carpool
