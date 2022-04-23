@@ -23,7 +23,7 @@ class CarpoolPost : ParseObject () {
      *  -   user: Pointer<User>
      *  -   sourceLocation: String
      *  -   destinationLocation: String
-     *  -   departureDate: Date todo: change to String later, if we don't get it to work
+     *  -   departureDate: String
      *  -   departureTime: String
      *  -   carCapacity: Number
      *  -   description: String
