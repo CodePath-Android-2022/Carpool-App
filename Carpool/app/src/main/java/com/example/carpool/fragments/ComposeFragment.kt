@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.carpool.CarpoolPost
 import com.example.carpool.R
 import com.parse.ParseUser
@@ -35,6 +36,7 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     private lateinit var etDescription: EditText
     private lateinit var etPrice: EditText
     private lateinit var btnCreateCarpool: Button
+    private lateinit var userImage: ImageButton
 
     // create variables for the date and time info
     var day = 0
@@ -72,10 +74,15 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         etDescription = view.findViewById(R.id.et_trip_description)
         etPrice = view.findViewById(R.id.et_trip_price)
         btnCreateCarpool = view.findViewById(R.id.btn_create_carpool)
-
+        userImage = view.findViewById(R.id.ib_user_profile)
 
         // fill username view with current user's username
-        tvUsername.text = ParseUser.getCurrentUser().username
+        val user = ParseUser.getCurrentUser()
+        tvUsername.text = user.username
+
+        //load user profile image
+        val userParseImage = user.getParseFile("profileImg")
+        Glide.with(this).load(userParseImage?.url).into(userImage);
 
         // set a click listener on the departure date button to display the date picker
         btnDepartureDate.setOnClickListener {
@@ -99,6 +106,7 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
             val carCapacity = etCarCapacity.text.toString()
             val description = etDescription.text.toString()
             val price = etPrice.text.toString()
+
 
             // check that all fields are filled & submit info to the home page after the user has filled all required information
             if (sourceLocation.isEmpty() || destinationLocation.isEmpty() || departureDate.isEmpty() ||  departureTime.isEmpty() ||  carCapacity.isEmpty() ||  description.isEmpty() ||  price.isEmpty()) {  // some or all fields are empty
@@ -153,6 +161,11 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         carpoolPost.setCarCapacity(carCapacity)
         carpoolPost.setDescription(description)
         carpoolPost.setPrice(price)
+
+        //loading the profile image
+
+
+
 
         // save post to server
         carpoolPost.saveInBackground { exception ->

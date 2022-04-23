@@ -21,7 +21,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.Carpool" >
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
+        <activity
+            android:name="com.example.carpool.RegisterActivity"
+            android:exported="false" />
         <activity
             android:name="com.example.carpool.LoginActivity"
             android:exported="true" >
@@ -33,8 +36,7 @@
         </activity>
         <activity
             android:name="com.example.carpool.MainActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
 
         <meta-data
             android:name="com.parse.SERVER_URL"
