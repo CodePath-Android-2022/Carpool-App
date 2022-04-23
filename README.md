@@ -1,18 +1,47 @@
 # CarpoolApp
 
+# Week 8
+
+## User Stories
+
+The following functionality is completed:
+
+## Carpool Creation Page
+
+Allows users to create new rides 
+- [x] User can compose a new ride
+- [x] Can set source Location 
+- [x] Set destination location
+- [x]  Set price
+- [x] Set capacity
+- [x] Set description
+
+## Log in/ Sign up Page Creation part 2
+
+Creating a login page to allow users to sign up to create a new account 
+- [x] User can sign up to create a new account using Parse authentication
+- [x] Users can log in and log out of their account
+- [x] The current signed-in user is persisted across app restarts
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+
+
 # Week 7
 
 ## User Stories
 
 The following functionality is completed:
 
-# Setup Parse client
+## Setup Parse client
 - [x] Create a dashbord for parse server.
 - [x] Add parse Client to project
 - [x] Create templates for necessary stater classes
 - [x] Push project to github
 
-# Create Carpool Class
+## Create Carpool Class
 
 1. Create Setters and Getter methods for the following.
 - [x] Takeoff location 
@@ -25,7 +54,7 @@ The following functionality is completed:
 - [x] UpdatedAt
 - [x] Host/User (get current logged in user)
 
-# Create User Class
+## Create User Class
 Create the user class using the parse client's variables 
 
 1. Required
