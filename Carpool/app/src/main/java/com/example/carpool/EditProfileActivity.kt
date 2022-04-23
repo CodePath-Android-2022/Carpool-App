@@ -1,4 +1,4 @@
-package com.pasa.carpool
+package com.example.carpool
 
 import android.app.Dialog
 import android.content.DialogInterface
