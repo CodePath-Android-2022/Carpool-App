@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/appbar"
+        android:layout_width="0dp"
+        android:layout_height="210dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nestedScrollView"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+            <ImageView
+                android:id="@+id/profile_pic_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="185dp"
+                android:foreground="@drawable/rounded_fg"
+                android:gravity="center_vertical"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Profile"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textSize="35sp" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+
+
+                <TextView
+                    android:id="@+id/profile_name_textView"
+                    android:layout_width="280dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="250dp"
+                    android:layout_marginBottom="1dp"
+                    android:textAlignment="center"
+                    android:hint="Name"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+                <ImageButton
+                    android:id="@+id/buttonEditName"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="250dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_toRightOf="@+id/profile_name_textView"
+                    android:background="@drawable/edit"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="buttonClickedEditName" />
+
+                <ImageButton
+                    android:id="@+id/btn_choose_image"
+                    android:layout_width="60dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/image"
+                    android:contentDescription="Choose image" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/profile_email_textView"
+                    android:layout_width="280dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:inputType="textEmailAddress"
+                    android:textAlignment="center"
+                    android:hint="Email"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    tools:ignore="TextViewEdits" />
+
+                <ImageButton
+                    android:id="@+id/buttonEditSurname"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_toRightOf="@+id/profile_name_textView"
+                    android:background="@drawable/edit"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="buttonClickedEditEmail" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/profile_phoneno_textView"
+                    android:layout_width="280dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:textAlignment="center"
+                    android:hint="          Contact info"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+                <ImageButton
+                    android:id="@+id/buttonEditPhoneNo"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_toRightOf="@+id/profile_name_textView"
+                    android:background="@drawable/edit"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="buttonClickedEditPhoneNo" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/profile_address_textView"
+                    android:layout_width="280dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:textAlignment="center"
+                    android:hint="   Address"
+                    android:textColor="@color/black"
+                    android:textSize="25sp" />
+
+                <ImageButton
+                    android:id="@+id/buttonEditAddress"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_toRightOf="@+id/profile_name_textView"
+                    android:background="@drawable/edit"
+                    android:contentDescription="@string/app_name"
+                    android:onClick="buttonClickedEditAddress" />
+            </TableRow>
+
+
+            <ImageButton
+                android:id="@+id/btn_log_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/out"
+                android:clickable="true"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:onClick="navigateLogOut" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
