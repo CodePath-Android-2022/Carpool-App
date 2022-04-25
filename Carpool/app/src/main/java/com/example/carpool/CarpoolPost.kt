@@ -8,14 +8,14 @@ import com.parse.ParseUser
 class CarpoolPost : ParseObject () {
 
     companion object {
-        private const val KEY_USER: String = "user"
-        private const val KEY_SOURCE_LOCATION: String = "sourceLocation"
-        private const val KEY_DESTINATION_LOCATION: String = "destinationLocation"
-        private const val KEY_DEPARTURE_DATE: String = "departureDate"
-        private const val KEY_DEPARTURE_TIME: String = "departureTime"
-        private const val KEY_CAR_CAPACITY: String = "carCapacity"
-        private const val KEY_DESCRIPTION: String = "description"
-        private const val KEY_PRICE: String = "price"
+        const val KEY_USER: String = "user"
+        const val KEY_SOURCE_LOCATION: String = "sourceLocation"
+        const val KEY_DESTINATION_LOCATION: String = "destinationLocation"
+        const val KEY_DEPARTURE_DATE: String = "departureDate"
+        const val KEY_DEPARTURE_TIME: String = "departureTime"
+        const val KEY_CAR_CAPACITY: String = "carCapacity"
+        const val KEY_DESCRIPTION: String = "description"
+        const val KEY_PRICE: String = "price"
     }
 
     /**

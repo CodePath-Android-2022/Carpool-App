@@ -16,7 +16,7 @@ import com.parse.ParseException
 import com.parse.ParseQuery
 
 
-class ExploreFragment : Fragment() {
+open class ExploreFragment : Fragment() {
     lateinit var ridesRecyclerView: RecyclerView
     lateinit var adapter: CarpoolPostAdapter
     var listOfRides: MutableList<CarpoolPost> = mutableListOf()
@@ -40,17 +40,20 @@ class ExploreFragment : Fragment() {
         getListOfAvailableRides()
     }
 
-    private fun getListOfAvailableRides() {
+    open fun getListOfAvailableRides() {
         // specify which class to query
         val query: ParseQuery<CarpoolPost> = ParseQuery.getQuery(CarpoolPost::class.java)
 
-        query.include("user")
+        query.include(CarpoolPost.KEY_USER)
         query.findInBackground(object : FindCallback<CarpoolPost>{
             override fun done(rides: MutableList<CarpoolPost>?, e: ParseException?) {
                 if (e != null) {
-                    Log.e(TAG, "Error fetching message")
+                    Log.e(TAG, "Error fetching message "+e)
                 } else {
                     if (rides != null) {
+                        for (ride in rides) {
+                            Log.i(TAG, ride.toString())
+                        }
                         listOfRides.addAll(rides)
                         adapter.notifyDataSetChanged()
                     }

@@ -15,7 +15,11 @@
     <string name="signout_description">Sign out</string>
     <string name="profileIcon_description">Profile</string>>
     <string name="pendingText"> Pending Page</string>
+
     <string name="ridesText">Rides Page</string>
     <string name="searchText"> Search Page</string>
     <string name="exploreText"> Explore Page</string>
+    <string name="rides_tab">My Rides</string>
+    <string name="pending_tab">Pending</string>
+    <string name="explore_tab">Explore</string>
 </resources>
