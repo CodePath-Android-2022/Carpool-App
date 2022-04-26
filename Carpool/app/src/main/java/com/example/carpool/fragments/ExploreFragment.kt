@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.carpool.CarpoolPost
 import com.example.carpool.CarpoolPostAdapter
 import com.example.carpool.R
+import com.google.android.material.card.MaterialCardView
 import com.parse.FindCallback
 import com.parse.ParseException
 import com.parse.ParseQuery
@@ -37,9 +38,12 @@ open class ExploreFragment : Fragment() {
         ridesRecyclerView.adapter = adapter
         ridesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        //get list of rides
         getListOfAvailableRides()
+
     }
 
+    //need to have this return list of rides (object/dictionary)
     open fun getListOfAvailableRides() {
         // specify which class to query
         val query: ParseQuery<CarpoolPost> = ParseQuery.getQuery(CarpoolPost::class.java)

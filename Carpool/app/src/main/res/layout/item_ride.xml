@@ -2,115 +2,178 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginBottom="40dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
-    <ImageButton
-        android:id="@+id/ibProfilePicture"
-        android:layout_width="74dp"
-        android:layout_height="71dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/tvRideCreatorName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ride Creator"
-        android:layout_marginEnd="150dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ibProfilePicture"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvRideContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ibProfilePicture"
-        app:layout_constraintTop_toTopOf="@+id/ibProfilePicture" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tvFrom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Start Location:"
-        app:layout_constraintStart_toStartOf="@+id/ibProfilePicture"
-        app:layout_constraintTop_toBottomOf="@+id/ibProfilePicture" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="184dp">
 
-    <TextView
-        android:id="@+id/tvRideSource"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="20dp"
-        android:text="From"
-        app:layout_constraintStart_toEndOf="@+id/tvFrom"
-        app:layout_constraintTop_toBottomOf="@+id/ibProfilePicture" />
+            <ImageView
+                android:id="@+id/ibProfilePicture"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tvTo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Destination:"
-        app:layout_constraintStart_toStartOf="@+id/tvFrom"
-        app:layout_constraintTop_toBottomOf="@+id/tvFrom" />
+            <TextView
+                android:id="@+id/tvRideCreatorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:hint="@string/rideHostName"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/ibProfilePicture"
+                app:layout_constraintStart_toEndOf="@+id/ibProfilePicture"
+                app:layout_constraintTop_toTopOf="@+id/ibProfilePicture" />
 
-    <TextView
-        android:id="@+id/tvRideDestination"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="To"
-        app:layout_constraintStart_toStartOf="@+id/tvRideSource"
-        app:layout_constraintTop_toBottomOf="@+id/tvRideSource" />
+            <TextView
+                android:id="@+id/tvFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/locationDescription"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/ibProfilePicture"
+                app:layout_constraintTop_toBottomOf="@+id/ibProfilePicture" />
 
-    <TextView
-        android:id="@+id/tvCost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Cost:"
-        app:layout_constraintStart_toStartOf="@+id/tvFrom"
-        app:layout_constraintTop_toBottomOf="@+id/tvTo" />
+            <TextView
+                android:id="@+id/tvRideSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:hint="@string/sourceLocationData"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+                app:layout_constraintStart_toEndOf="@+id/tvFrom"
+                app:layout_constraintTop_toTopOf="@+id/tvFrom"
+                app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/tvRideAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="$ Amount"
-        app:layout_constraintStart_toStartOf="@+id/tvRideSource"
-        app:layout_constraintTop_toBottomOf="@+id/tvRideDestination" />
+            <TextView
+                android:id="@+id/tvTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/destinationDescription"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvFrom"
+                app:layout_constraintTop_toBottomOf="@+id/tvFrom" />
 
-    <TextView
-        android:id="@+id/tvCapacity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Capacity:"
-        app:layout_constraintStart_toStartOf="@+id/tvFrom"
-        app:layout_constraintTop_toBottomOf="@+id/tvCost" />
+            <TextView
+                android:id="@+id/tvRideDestination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:hint="To"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTo"
+                app:layout_constraintStart_toEndOf="@+id/tvTo"
+                app:layout_constraintTop_toTopOf="@+id/tvTo"
+                app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/tvRideCapacity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Ride Capacity"
-        app:layout_constraintStart_toStartOf="@+id/tvRideSource"
-        app:layout_constraintTop_toBottomOf="@+id/tvRideAmount" />
+            <TextView
+                android:id="@+id/tvCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cost: $"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRideSource"
+                app:layout_constraintEnd_toStartOf="@+id/tvRideAmount"
+                app:layout_constraintTop_toTopOf="@+id/tvRideSource" />
 
-    <Button
-        android:id="@+id/btnJoinRide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Join"
-        app:layout_constraintEnd_toStartOf="@+id/tvRideCapacity"
-        app:layout_constraintStart_toEndOf="@+id/tvCapacity"
-        app:layout_constraintTop_toBottomOf="@+id/tvRideCapacity" />
+            <TextView
+                android:id="@+id/tvRideAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:hint="$$"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCost"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvCost" />
+
+            <TextView
+                android:id="@+id/tvCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRideCapacity"
+                app:layout_constraintEnd_toStartOf="@+id/tvRideCapacity"
+                app:layout_constraintTop_toTopOf="@+id/tvRideCapacity"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tvRideCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text="Ride Capacity"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRideCreatorName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvRideCreatorName" />
+
+            <Button
+                android:id="@+id/btnJoinRide"
+                android:layout_width="73dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="10dp"
+                android:text="Join"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tvRideAmount"
+                app:layout_constraintTop_toBottomOf="@+id/tvRideAmount"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

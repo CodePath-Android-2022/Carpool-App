@@ -66,7 +66,6 @@ class MainActivity : AppCompatActivity() {
                     // Take user to the profile page
                     Log.i(TAG, "Profile was clicked")
                     fragmentManager.beginTransaction().replace(R.id.flContainer, ProfileFragment()).commit()
-                    true
                 }
             }
 
