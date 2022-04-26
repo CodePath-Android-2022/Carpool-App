@@ -45,6 +45,7 @@ class FeedFragment : Fragment() {
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
                 // Handle tab unselect
+
             }
         })
     }

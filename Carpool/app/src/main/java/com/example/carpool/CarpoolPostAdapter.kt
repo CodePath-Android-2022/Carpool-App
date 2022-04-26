@@ -36,7 +36,7 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
         private val tvRideDestination: TextView = itemView.findViewById(R.id.tvRideDestination)
         private val tvRideAmount: TextView = itemView.findViewById(R.id.tvRideAmount)
         private val tvRideCapacity: TextView = itemView.findViewById(R.id.tvRideCapacity)
-
+        lateinit var cvCard: MaterialCardView
 
         fun bind(ride: CarpoolPost) {
             tvUserName.text = ride.getUser()?.username
@@ -46,24 +46,25 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
             tvRideCapacity.text = ride.getCarCapacity().toString()
             // Find the ride creator
             val user = ride.getUser()
-            val cvCard: MaterialCardView = itemView.findViewById(R.id.cvRideContainer)
+
             // Populate Image Button using User Info
             val userParseImage = user?.getParseFile("profileImg")
             Glide.with(itemView.context).load(userParseImage?.url).transform(RoundedCorners(100)).into(ibProfilePicture);
         }
 
         init {
-            itemView.setOnClickListener(this)
+            cvCard = itemView.findViewById(R.id.cvRideContainer)
+            cvCard.setOnClickListener(this)
         }
 
         override fun onClick(p0: View?) {
             //1. Get notified of the particular ride which was clicked
             val ride = carpoolRides[adapterPosition]
-            Log.i(TAG,"Profile clicked ${ride}")
+            Log.i(TAG,"Ride clicked ${ride}")
+            
             //2. Use the intent system to navigate to new activity
             val intent = Intent(context, DetailedRideView::class.java)
             intent.putExtra("ride_content", ride)
-
             context.startActivity(intent)
         }
 
