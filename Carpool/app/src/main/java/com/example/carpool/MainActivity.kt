@@ -29,12 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.action_profileIcon -> {
-                    // Take user to the profile page
-                    Log.i(TAG, "Profile was clicked")
-                    fragmentManager.beginTransaction().replace(R.id.flContainer, ProfileFragment()).commit()
-                    true
-                }
                 R.id.action_signout -> {
                     ParseUser.logOut()
                     val intent = Intent(this, LoginActivity::class.java)
@@ -67,6 +61,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.action_compose -> {
                     fragmentToDisplay = ComposeFragment()
                     Toast.makeText(this, "Compose Ride", Toast.LENGTH_SHORT).show()
+                }
+                R.id.action_profileIcon -> {
+                    // Take user to the profile page
+                    Log.i(TAG, "Profile was clicked")
+                    fragmentManager.beginTransaction().replace(R.id.flContainer, ProfileFragment()).commit()
+                    true
                 }
             }
 
