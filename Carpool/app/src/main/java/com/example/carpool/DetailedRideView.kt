@@ -16,6 +16,7 @@ class DetailedRideView : AppCompatActivity() {
     private lateinit var tvToLocation: TextView
     private lateinit var tvDescriptionText: TextView
     private lateinit var tvCapacityValue: TextView
+    private lateinit var tvCost: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,8 @@ class DetailedRideView : AppCompatActivity() {
         tvFromLocation = findViewById(R.id.tv_from_location)
         tvToLocation = findViewById(R.id.tv_to_location)
         tvDescriptionText = findViewById(R.id.tv_description_text)
-        tvCapacityValue = findViewById(R.id.tv_capacity_value)
+        tvCapacityValue = findViewById(R.id.tvTotalCap_DV)
+        tvCost = findViewById(R.id.tvCostContent_DV)
 
         // get CarpoolPost object out of intent's putExtra
         val carpoolPost = intent.getParcelableExtra<CarpoolPost>(CARPOOL_POST_EXTRA) as CarpoolPost
@@ -40,6 +42,10 @@ class DetailedRideView : AppCompatActivity() {
         tvToLocation.text = carpoolPost.getDestinationLocation()
         tvDescriptionText.text = carpoolPost.getDescription()
         tvCapacityValue.text = carpoolPost.getCarCapacity().toString()
+        tvCost.text = carpoolPost.getPrice().toString()
+        val user = carpoolPost.getUser()
+        val userParseImage = user?.getParseFile("profileImg")
+        Glide.with(this).load(userParseImage?.url).into(ivProfileImage)
 
 
     }

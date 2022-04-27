@@ -16,11 +16,11 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         findViewById<Button>(R.id.register_button).setOnClickListener {
-            val firstName = findViewById<EditText>(R.id.et_firstName).text.toString()
-            val lastName = findViewById<EditText>(R.id.et_lastName).text.toString()
-            val email = findViewById<EditText>(R.id.et_signup_email).text.toString()
-            val password = findViewById<EditText>(R.id.et_signup_password).text.toString()
-            val username = findViewById<EditText>(R.id.et_signup_username).text.toString()
+            val firstName = findViewById<EditText>(R.id.et_firstNameContent).text.toString()
+            val lastName = findViewById<EditText>(R.id.et_lastNameContent).text.toString()
+            val email = findViewById<EditText>(R.id.et_signup_emailContent).text.toString()
+            val password = findViewById<EditText>(R.id.et_signup_passwordContent).text.toString()
+            val username = findViewById<EditText>(R.id.et_signup_usernameContent).text.toString()
             signUpUser(username, firstName, lastName, email, password)
         }
 

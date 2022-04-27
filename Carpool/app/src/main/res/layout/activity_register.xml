@@ -13,61 +13,127 @@
         android:layout_marginTop="80dp"
         android:text="Sign Up"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_firstName"
         android:layout_width="144dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:ems="10"
-        android:hint="First Name"
-        android:inputType="textPersonName"
+        app:endIconMode="clear_text"
+        app:startIconContentDescription="label"
         app:layout_constraintBottom_toBottomOf="@+id/et_lastName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/et_lastName" />
+        app:layout_constraintTop_toTopOf="@+id/et_lastName">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_firstNameContent"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="textPersonName"
+             />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_lastName"
         android:layout_width="144dp"
         android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="50dp"
-        android:ems="10"
-        android:hint="Last Name"
-        android:inputType="textPersonName"
+        app:startIconContentDescription="label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/et_firstName"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Sign_In" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_Sign_In">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_lastNameContent"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Last Name"
+            android:inputType="textPersonName"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_signup_email"
         android:layout_width="300dp"
         android:layout_height="44dp"
+        app:endIconMode="clear_text"
         android:layout_marginTop="25dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
+        app:startIconContentDescription="label"
         app:layout_constraintEnd_toEndOf="@+id/et_lastName"
         app:layout_constraintStart_toStartOf="@+id/et_firstName"
-        app:layout_constraintTop_toBottomOf="@+id/et_firstName" />
+        app:layout_constraintTop_toBottomOf="@+id/et_firstName">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_signup_emailContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            />
 
-    <EditText
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_signup_password"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        app:endIconMode="password_toggle"
         android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
+        app:startIconContentDescription="label"
         app:layout_constraintEnd_toEndOf="@+id/et_signup_username"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/et_signup_username"
-        app:layout_constraintTop_toBottomOf="@+id/et_signup_username" />
+        app:layout_constraintTop_toBottomOf="@+id/et_signup_username">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_signup_passwordContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_signup_username"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
+        android:layout_marginTop="25dp"
+        app:startIconContentDescription="label"
+        app:layout_constraintEnd_toEndOf="@+id/et_signup_email"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_signup_email"
+        app:layout_constraintTop_toBottomOf="@+id/et_signup_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_signup_usernameContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/register_button"
@@ -80,18 +146,7 @@
         app:layout_constraintStart_toStartOf="@+id/et_signup_password"
         app:layout_constraintTop_toBottomOf="@+id/et_signup_password" />
 
-    <EditText
-        android:id="@+id/et_signup_username"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/et_signup_email"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/et_signup_email"
-        app:layout_constraintTop_toBottomOf="@+id/et_signup_email" />
+
 
     <TextView
         android:id="@+id/tv_Signin"
