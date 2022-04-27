@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carpool.CarpoolPost
 import com.example.carpool.CarpoolPostAdapter
 import com.example.carpool.R
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.parse.FindCallback
 import com.parse.ParseException
 import com.parse.ParseQuery
@@ -37,9 +39,26 @@ open class ExploreFragment : Fragment() {
         adapter = CarpoolPostAdapter(requireContext(), listOfRides)
         ridesRecyclerView.adapter = adapter
         ridesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+//
+//        //Upon clicking floating button, navigate to compose screen
+//        val fragmentManager: FragmentManager = childFragmentManager
+//        val fab = view.findViewById<FloatingActionButton>(R.id.floating_action_button)
+//        fab.setOnClickListener{
+//            fragmentManager.beginTransaction().replace(R.id.flContainer, ComposeFragment()).addToBackStack("ExploreFragment").commit()
+//        }
+//
+//
+//        //Allowing user to navigate backward
+//        if (fragmentManager.backStackEntryCount > 0) {
+//            fragmentManager.popBackStack()
+//        }
 
         //get list of rides
         getListOfAvailableRides()
+
+
+
+
 
     }
 

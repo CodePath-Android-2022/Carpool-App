@@ -15,9 +15,8 @@
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
             android:name=".DetailedRideView"
-            android:exported="false"
-            android:label="@string/title_activity_detailed_ride_view"
-            android:theme="@style/NoActionBar" />
+            android:exported="true"
+            android:label="@string/title_activity_detailed_ride_view" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />

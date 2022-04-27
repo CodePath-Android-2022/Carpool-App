@@ -67,8 +67,8 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
             intent.putExtra("ride_content", ride)
             context.startActivity(intent)
         }
-
     }
+
     companion object{
         val TAG = "CarpoolPostAdapter"
     }
