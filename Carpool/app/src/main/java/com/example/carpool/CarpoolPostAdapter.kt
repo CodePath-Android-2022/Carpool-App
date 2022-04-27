@@ -34,7 +34,7 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         private val ibProfilePicture : ImageView = itemView.findViewById(R.id.ibProfilePicture)
-        private val tvUserName: TextView = itemView.findViewById(R.id.tvRideCreatorName)
+        private val tvHostName: TextView = itemView.findViewById(R.id.tvRideCreatorName)
         private val tvRideSource: TextView = itemView.findViewById(R.id.tvRideSource)
         private val tvRideDestination: TextView = itemView.findViewById(R.id.tvRideDestination)
         private val tvRideAmount: TextView = itemView.findViewById(R.id.tvRideAmount)
@@ -42,7 +42,9 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
         lateinit var cvCard: MaterialCardView
 
         fun bind(ride: CarpoolPost) {
-            tvUserName.text = ride.getUser()?.username
+            //change the carpool class to contain the user's first and last name
+            val fullname = "${ride.getFirstName()} ${ride.getLastName()}"
+            tvHostName.text = fullname
             tvRideSource.text = ride.getSourceLocation()
             tvRideDestination.text = ride.getDestinationLocation()
             tvRideAmount.text = ride.getPrice().toString()

@@ -16,6 +16,8 @@ class CarpoolPost : ParseObject () {
         const val KEY_CAR_CAPACITY: String = "carCapacity"
         const val KEY_DESCRIPTION: String = "description"
         const val KEY_PRICE: String = "price"
+        const val KEY_FIRSTNAME: String = "firstName"
+        const val KEY_LASTNAME: String = "lastName"
     }
 
     /**
@@ -64,6 +66,13 @@ class CarpoolPost : ParseObject () {
     fun setPrice(price: Float) {
         put(KEY_PRICE, price)
     }
+    fun setFirstName(firstname: String){
+        return put(KEY_FIRSTNAME, firstname)
+    }
+
+    fun setLastName(lastname: String){
+        return put(KEY_LASTNAME, lastname)
+    }
 
 
 
@@ -99,6 +108,14 @@ class CarpoolPost : ParseObject () {
 
     fun getPrice() : Int {
         return getInt(KEY_PRICE)
+    }
+
+    fun getFirstName() : String? {
+        return getString(KEY_FIRSTNAME)
+    }
+
+    fun getLastName() : String? {
+        return getString(KEY_LASTNAME)
     }
 
 }

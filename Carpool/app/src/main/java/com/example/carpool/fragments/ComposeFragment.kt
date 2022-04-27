@@ -162,7 +162,11 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         carpoolPost.setDescription(description)
         carpoolPost.setPrice(price)
 
-        //loading the profile image
+        //TODO: GET current user's first and last name and add it to the post. UPDATE GETTER AND SETTER and parse backend
+        val user = ParseUser.getCurrentUser()
+        carpoolPost.setFirstName(user.get("firstName").toString())
+        carpoolPost.setLastName(user.get("lastName").toString())
+
 
 
 
