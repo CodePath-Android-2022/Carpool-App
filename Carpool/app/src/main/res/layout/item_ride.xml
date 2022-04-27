@@ -118,18 +118,18 @@
                 app:layout_constraintTop_toTopOf="@+id/tvCost" />
 
             <TextView
-                android:id="@+id/tvCapacity"
+                android:id="@+id/tvCurrentCapacity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0/"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvRideCapacity"
-                app:layout_constraintEnd_toStartOf="@+id/tvRideCapacity"
-                app:layout_constraintTop_toTopOf="@+id/tvRideCapacity"
+                app:layout_constraintBottom_toBottomOf="@+id/tvMaxCapacity"
+                app:layout_constraintEnd_toStartOf="@+id/tvMaxCapacity"
+                app:layout_constraintTop_toTopOf="@+id/tvMaxCapacity"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/tvRideCapacity"
+                android:id="@+id/tvMaxCapacity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="25dp"

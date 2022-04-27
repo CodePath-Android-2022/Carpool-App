@@ -56,8 +56,7 @@ open class ExploreFragment : Fragment() {
         //get list of rides
         getListOfAvailableRides()
 
-
-
+        //TODO: Implement the join feature
 
 
     }
@@ -68,6 +67,7 @@ open class ExploreFragment : Fragment() {
         val query: ParseQuery<CarpoolPost> = ParseQuery.getQuery(CarpoolPost::class.java)
 
         query.include(CarpoolPost.KEY_USER)
+        query.whereEqualTo("availability", true);
         query.findInBackground(object : FindCallback<CarpoolPost>{
             override fun done(rides: MutableList<CarpoolPost>?, e: ParseException?) {
                 if (e != null) {

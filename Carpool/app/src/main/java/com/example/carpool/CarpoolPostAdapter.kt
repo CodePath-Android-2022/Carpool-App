@@ -38,7 +38,8 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
         private val tvRideSource: TextView = itemView.findViewById(R.id.tvRideSource)
         private val tvRideDestination: TextView = itemView.findViewById(R.id.tvRideDestination)
         private val tvRideAmount: TextView = itemView.findViewById(R.id.tvRideAmount)
-        private val tvRideCapacity: TextView = itemView.findViewById(R.id.tvRideCapacity)
+        private val tvMaxCapacity: TextView = itemView.findViewById(R.id.tvMaxCapacity)
+        private val tvCurrentCapacity: TextView = itemView.findViewById(R.id.tvCurrentCapacity)
         lateinit var cvCard: MaterialCardView
 
         fun bind(ride: CarpoolPost) {
@@ -48,7 +49,9 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
             tvRideSource.text = ride.getSourceLocation()
             tvRideDestination.text = ride.getDestinationLocation()
             tvRideAmount.text = ride.getPrice().toString()
-            tvRideCapacity.text = ride.getCarCapacity().toString()
+            tvMaxCapacity.text = ride.getCarCapacity().toString()
+            val capacity = ride.getcurrCapacity().toString() + "/"
+            tvCurrentCapacity.text = capacity
             // Find the ride creator
             val user = ride.getUser()
 

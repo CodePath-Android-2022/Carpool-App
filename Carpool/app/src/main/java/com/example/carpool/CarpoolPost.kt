@@ -18,6 +18,8 @@ class CarpoolPost : ParseObject () {
         const val KEY_PRICE: String = "price"
         const val KEY_FIRSTNAME: String = "firstName"
         const val KEY_LASTNAME: String = "lastName"
+        const val KEY_AVAILABILITY: String = "availability"
+        const val KEY_CURRENT_CAPACITY: String = "currCapacity"
     }
 
     /**
@@ -73,6 +75,14 @@ class CarpoolPost : ParseObject () {
     fun setLastName(lastname: String){
         return put(KEY_LASTNAME, lastname)
     }
+    fun setAvailability(availability: Boolean) {
+        return put(KEY_AVAILABILITY, availability)
+    }
+
+    fun setcurrCapacity(currentCapacity: Number) {
+        return put(KEY_CURRENT_CAPACITY, currentCapacity)
+    }
+
 
 
 
@@ -116,6 +126,14 @@ class CarpoolPost : ParseObject () {
 
     fun getLastName() : String? {
         return getString(KEY_LASTNAME)
+    }
+
+    fun getAvailability() : Boolean {
+        return getBoolean(KEY_AVAILABILITY)
+    }
+
+    fun getcurrCapacity() : Number? {
+        return getNumber(KEY_CURRENT_CAPACITY)
     }
 
 }
