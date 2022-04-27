@@ -13,6 +13,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.google.android.material.card.MaterialCardView
 
+
+const val CARPOOL_POST_EXTRA = "CARPOOL_POST_EXTRA"
+
 class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPost>): RecyclerView.Adapter<CarpoolPostAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // Specify Layout file to use for this item
@@ -64,7 +67,7 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
             
             //2. Use the intent system to navigate to new activity
             val intent = Intent(context, DetailedRideView::class.java)
-            intent.putExtra("ride_content", ride)
+            intent.putExtra(CARPOOL_POST_EXTRA, ride)
             context.startActivity(intent)
         }
 
