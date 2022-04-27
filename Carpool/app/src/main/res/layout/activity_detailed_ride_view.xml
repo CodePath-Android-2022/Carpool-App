@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,161 +9,108 @@
 
 
     <TextView
-        android:id="@+id/tvHostname_DV"
+        android:id="@+id/tv_host_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="TextView"
+        android:text="Username"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivProfileImage_DV"
-        app:layout_constraintStart_toEndOf="@+id/ivProfileImage_DV"
-        app:layout_constraintTop_toTopOf="@+id/ivProfileImage_DV" />
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/iv_profile_image"
+        app:layout_constraintEnd_toEndOf="@id/iv_profile_image"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
-        android:id="@+id/ivProfileImage_DV"
-        android:layout_width="101dp"
-        android:layout_height="95dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="44dp"
+        android:id="@+id/iv_profile_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="fitCenter"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_person_24" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_host_username"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tvFrom_DV"
+        android:id="@+id/tv_from"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="From: "
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/ivProfileImage_DV"
-        app:layout_constraintTop_toBottomOf="@+id/ivProfileImage_DV" />
+        android:textSize="20sp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toEndOf="@+id/iv_profile_image"
+        app:layout_constraintTop_toTopOf="@+id/iv_profile_image" />
 
     <TextView
-        android:id="@+id/tvFromContent_DV"
+        android:id="@+id/tv_to"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:text="TextView"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFrom_DV"
-        app:layout_constraintStart_toEndOf="@+id/tvFrom_DV"
-        app:layout_constraintTop_toTopOf="@+id/tvFrom_DV"
-        app:layout_constraintVertical_bias="0.0" />
+        android:text="To: "
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_from"
+        app:layout_constraintTop_toBottomOf="@+id/tv_from" />
 
     <TextView
-        android:id="@+id/tvTo_DV"
+        android:id="@+id/tv_from_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="To"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tvFrom_DV"
-        app:layout_constraintTop_toBottomOf="@+id/tvFrom_DV" />
+        android:text="from location"
+        android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_from"
+        app:layout_constraintTop_toTopOf="@+id/tv_from" />
 
     <TextView
-        android:id="@+id/tvToContent_DV"
+        android:id="@+id/tv_to_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:text="TextView"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvTo_DV"
-        app:layout_constraintStart_toEndOf="@+id/tvTo_DV"
-        app:layout_constraintTop_toTopOf="@+id/tvTo_DV"
-        app:layout_constraintVertical_bias="0.0" />
+        android:text="to location"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_from_location"
+        app:layout_constraintTop_toTopOf="@+id/tv_to" />
 
     <TextView
-        android:id="@+id/tvCurrentCap_DV"
+        android:id="@+id/tv_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView13"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/textView13" />
-
-    <TextView
-        android:id="@+id/tvTotalCap_DV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:text="TextView"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFromContent_DV"
+        android:text="Description: "
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvFromContent_DV" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_profile_image"
+         />
 
     <TextView
-        android:id="@+id/tvCost_DV"
+        android:id="@+id/tv_description_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:text="Cost: $"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tvCostContent_DV"
-        app:layout_constraintEnd_toStartOf="@+id/tvCostContent_DV"
-        app:layout_constraintTop_toTopOf="@+id/tvCostContent_DV"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/tvCostContent_DV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:text="TextView"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvToContent_DV"
+        android:layout_marginEnd="0dp"
+        android:text="This is the description of the trip."
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvToContent_DV" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
     <TextView
-        android:id="@+id/tvDescContent_DV"
-        android:layout_width="335dp"
+        android:id="@+id/tv_capacity"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Description Content"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/tvDesc_DV"
-        app:layout_constraintTop_toBottomOf="@+id/tvDesc_DV" />
+        android:text="Capacity: "
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/iv_profile_image"
+        app:layout_constraintTop_toBottomOf="@id/tv_description_text"
+        />
 
     <TextView
-        android:id="@+id/tvDesc_DV"
+        android:id="@+id/tv_capacity_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Description"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tvTo_DV"
-        app:layout_constraintTop_toBottomOf="@+id/tvTo_DV" />
+        android:text="123"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/tv_from"
+        app:layout_constraintTop_toTopOf="@id/tv_capacity" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:text="/"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvTotalCap_DV"
-        app:layout_constraintEnd_toStartOf="@+id/tvTotalCap_DV"
-        app:layout_constraintTop_toTopOf="@+id/tvTotalCap_DV"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="@color/btnJoin"
-        android:text="Join"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tvDescContent_DV"
-        app:layout_constraintStart_toStartOf="@+id/tvDescContent_DV"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescContent_DV"
-        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
