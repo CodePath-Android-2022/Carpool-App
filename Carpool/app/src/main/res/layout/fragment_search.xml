@@ -38,19 +38,21 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_searchFrom"
-                android:layout_width="200dp"
+                android:id="@+id/searchFromContainer"
+                android:layout_width="205dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:hint="Current Location"
+                app:endIconMode="clear_text"
                 app:layout_constraintBottom_toBottomOf="@+id/textView6"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
                 app:layout_constraintTop_toTopOf="@+id/textView6"
                 app:startIconContentDescription="label">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_searchFrom"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -69,16 +71,17 @@
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="50dp"
                 android:text="To: "
                 app:layout_constraintStart_toStartOf="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_searchTo"
-                android:layout_width="200dp"
+                android:id="@+id/searchToContainer"
+                android:layout_width="205dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="20dp"
+                app:endIconMode="clear_text"
                 android:hint="Destination"
                 app:layout_constraintBottom_toBottomOf="@+id/textView7"
                 app:layout_constraintStart_toEndOf="@+id/textView7"
@@ -86,8 +89,9 @@
                 app:startIconContentDescription="label">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="216dp"
-                    android:layout_height="35dp"
+                    android:id="@+id/et_SearchTo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -96,23 +100,15 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="50dp"
                 android:text="Price: "
                 app:layout_constraintStart_toStartOf="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:text="-"
-                app:layout_constraintStart_toStartOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_searchPriceMin"
-                android:layout_width="100dp"
+                android:id="@+id/et_searchPriceMinContainer"
+                android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:hint="Min"
@@ -122,39 +118,53 @@
                 app:startIconContentDescription="label">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_searchPriceMin"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
                     app:layout_constraintBottom_toBottomOf="parent" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_searchPriceMax"
-                android:layout_width="100dp"
+                android:id="@+id/et_searchPriceMaxContainer"
+                android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:hint="Max"
-                app:layout_constraintBottom_toBottomOf="@+id/et_searchPriceMin"
-                app:layout_constraintStart_toEndOf="@+id/et_searchPriceMin"
-                app:layout_constraintTop_toTopOf="@+id/et_searchPriceMin"
+                app:layout_constraintBottom_toBottomOf="@+id/et_searchPriceMinContainer"
+                app:layout_constraintStart_toEndOf="@+id/textView10"
+                app:layout_constraintTop_toTopOf="@+id/et_searchPriceMinContainer"
                 app:startIconContentDescription="label">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_searchPriceMax"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
                     app:layout_constraintBottom_toBottomOf="parent" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btnFindRides"
+                android:id="@+id/btnSearch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="84dp"
                 android:text="Find Rides"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_searchPriceMax" />
+                app:layout_constraintTop_toBottomOf="@+id/et_searchPriceMaxContainer" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="-"
+                app:layout_constraintBottom_toBottomOf="@+id/et_searchPriceMinContainer"
+                app:layout_constraintStart_toEndOf="@+id/et_searchPriceMinContainer"
+                app:layout_constraintTop_toTopOf="@+id/et_searchPriceMinContainer" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

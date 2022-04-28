@@ -7,10 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.example.carpool.fragments.ComposeFragment
-import com.example.carpool.fragments.FeedFragment
-import com.example.carpool.fragments.ProfileFragment
-import com.example.carpool.fragments.SearchFragment
+import com.example.carpool.fragments.*
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -24,6 +21,20 @@ class MainActivity : AppCompatActivity() {
         val fragmentManager: FragmentManager = supportFragmentManager
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         val topAppBar = findViewById<MaterialToolbar>(R.id.topAppBar)
+
+        //Get data from intent from search and add it to a bundle to send off to Explore
+        val fromLocation = intent.getStringExtra("fromLocation")
+        val toLocation = intent.getStringExtra("toLocation")
+        val priceMin = intent.getStringExtra("priceMin")
+        val priceMax = intent.getStringExtra("priceMax")
+
+        val args = Bundle()
+        args.putString("fromLocation", fromLocation)
+        args.putString("toLocation", toLocation)
+        args.putString("priceMin", priceMin)
+        args.putString("priceMax", priceMax)
+
+
 
         //floating button
         val fab = findViewById<FloatingActionButton>(R.id.action_compose)
@@ -51,12 +62,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.action_search -> {
                     fab.hide()
                     fragmentToDisplay = SearchFragment()
+                    fragmentToDisplay.arguments = args
                     Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
                 }
 
                 R.id.action_home -> {
                     fab.show()
                     fragmentToDisplay = FeedFragment()
+                    fragmentToDisplay.arguments = args
                     Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
                 }
                 R.id.action_compose -> {
@@ -80,8 +93,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //navigating back to the homepage
-        val btnFloatingButton = findViewById<FloatingActionButton>(R.id.action_compose)
-        btnFloatingButton.setOnClickListener{
+        fab.setOnClickListener{
             fragmentManager.beginTransaction().replace(R.id.flContainer, ComposeFragment()).addToBackStack("ExploreFragment").commit()
         }
 
