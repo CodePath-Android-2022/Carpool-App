@@ -140,7 +140,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tvRideCreatorName" />
 
             <Button
-                android:id="@+id/btnJoinRide"
+                android:id="@+id/btnAcceptRide"
                 android:layout_width="176dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

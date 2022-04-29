@@ -14,6 +14,7 @@ class RideRequest : ParseObject () {
         const val KEY_HOST: String = "host"
         const val KEY_PENDING: String = "pending"
         const val KEY_ACCEPTED: String = "accepted"
+        const val KEY_DECLINED: String = "declined"
         const val KEY_CARPOOL_ID: String = "carpoolID"
         const val KEY_CLIENT_NAME: String = "clientname"
         const val KEY_CLIENT_IMAGE: String = "clientImage"
@@ -47,6 +48,10 @@ class RideRequest : ParseObject () {
 
     fun setAccepted(accepted: Boolean) {
         put(KEY_ACCEPTED, accepted)
+    }
+
+    fun setDeclned(declined: Boolean) {
+        put(KEY_ACCEPTED, declined)
     }
 
     fun setCarpoolID(carpoolID: CarpoolRide) {
@@ -84,6 +89,9 @@ class RideRequest : ParseObject () {
 
     fun getAccepted() : Boolean? {
         return getBoolean(KEY_ACCEPTED)
+    }
+    fun getDeclined() : Boolean? {
+        return getBoolean(KEY_DECLINED)
     }
 
     fun getCarpoolID() : ParseObject? {
