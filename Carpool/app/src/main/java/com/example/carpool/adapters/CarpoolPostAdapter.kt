@@ -6,12 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.example.carpool.CarpoolPost
+import com.example.carpool.CarpoolRide
 import com.example.carpool.DetailedRideView
 import com.example.carpool.R
 import com.google.android.material.card.MaterialCardView
@@ -20,7 +21,7 @@ import java.text.DateFormat
 
 const val CARPOOL_POST_EXTRA = "CARPOOL_POST_EXTRA"
 
-class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPost>): RecyclerView.Adapter<CarpoolPostAdapter.ViewHolder>() {
+class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRide>): RecyclerView.Adapter<CarpoolPostAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // Specify Layout file to use for this item
         val view = LayoutInflater.from(context).inflate(R.layout.item_ride, parent, false)
@@ -45,9 +46,10 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
         private val tvMaxCapacity: TextView = itemView.findViewById(R.id.tvMaxCapacity)
         private val tvCurrentCapacity: TextView = itemView.findViewById(R.id.tvCurrentCapacity)
         private val tv_createdAt: TextView = itemView.findViewById(R.id.tv_createdAt)
+        lateinit var  joinBtn: Button
         lateinit var cvCard: MaterialCardView
 
-        fun bind(ride: CarpoolPost) {
+        fun bind(ride: CarpoolRide) {
             //change the carpool class to contain the user's first and last name
             val fullname = "${ride.getFirstName()} ${ride.getLastName()}"
             tvHostName.text = fullname
@@ -71,18 +73,26 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
 
         init {
             cvCard = itemView.findViewById(R.id.cvRideContainer)
+            joinBtn = itemView.findViewById(R.id.btnJoinRide)
+            joinBtn.setOnClickListener(this)
             cvCard.setOnClickListener(this)
         }
 
-        override fun onClick(p0: View?) {
-            //1. Get notified of the particular ride which was clicked
-            val ride = carpoolRides[adapterPosition]
-            Log.i(TAG,"Ride clicked ${ride}")
-            
-            //2. Use the intent system to navigate to new activity
-            val intent = Intent(context, DetailedRideView::class.java)
-            intent.putExtra(CARPOOL_POST_EXTRA, ride)
-            context.startActivity(intent)
+        override fun onClick(view: View?) {
+            if (view == joinBtn) {
+                Log.i(TAG, "Join Button Click")
+                //TODO: Create a new request and send it to parse backend.
+            } else if (view == cvCard) {
+                //1. Get notified of the particular ride which was clicked
+                val ride = carpoolRides[adapterPosition]
+                Log.i(TAG,"Ride clicked ${ride}")
+
+                //2. Use the intent system to navigate to new activity
+                val intent = Intent(context, DetailedRideView::class.java)
+                intent.putExtra(CARPOOL_POST_EXTRA, ride)
+                context.startActivity(intent)
+            }
+
         }
     }
 

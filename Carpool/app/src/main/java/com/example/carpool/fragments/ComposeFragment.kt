@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.carpool.CarpoolPost
+import com.example.carpool.CarpoolRide
 import com.example.carpool.R
 import com.parse.ParseUser
 import java.util.*
@@ -152,7 +152,7 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
          */
 
         // create a Carpool post object to be sent to the server
-        val carpoolPost = CarpoolPost()
+        val carpoolPost = CarpoolRide()
 
         // set all fields to save
         carpoolPost.setUser(user)

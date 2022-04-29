@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.carpool.CarpoolPost
+import com.example.carpool.CarpoolRide
 import com.example.carpool.R
 import com.example.carpool.adapters.CarpoolPostAdapter
 import com.parse.FindCallback
@@ -21,7 +21,7 @@ open class ExploreFragment : Fragment() {
     lateinit var ridesRecyclerView: RecyclerView
     lateinit var adapter: CarpoolPostAdapter
 
-    var listOfRides: MutableList<CarpoolPost> = mutableListOf()
+    var listOfRides: MutableList<CarpoolRide> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,16 +60,16 @@ open class ExploreFragment : Fragment() {
     //need to have this return list of rides (object/dictionary)
     open fun getListOfAvailableRides(fromLocation: String?, toLocation: String?, priceMin: String?, priceMax: String?) {
         // specify which class to query
-        val query: ParseQuery<CarpoolPost> = ParseQuery.getQuery(CarpoolPost::class.java)
+        val query: ParseQuery<CarpoolRide> = ParseQuery.getQuery(CarpoolRide::class.java)
 
         //check if location is not empty then add to query
         //Add price to query if not empty
-        query.include(CarpoolPost.KEY_USER)
+        query.include(CarpoolRide.KEY_USER)
         query.addDescendingOrder("createdAt")
         //TODO: Return only most recent 20 posts and implement infinite scroll
         query.whereEqualTo("availability", true);
-        query.findInBackground(object : FindCallback<CarpoolPost>{
-            override fun done(rides: MutableList<CarpoolPost>?, e: ParseException?) {
+        query.findInBackground(object : FindCallback<CarpoolRide>{
+            override fun done(rides: MutableList<CarpoolRide>?, e: ParseException?) {
                 if (e != null) {
                     Log.e(TAG, "Error fetching message "+e)
                 } else {
@@ -89,11 +89,12 @@ open class ExploreFragment : Fragment() {
 
     open fun getListOfAvailableRides() {
 
-        val query: ParseQuery<CarpoolPost> = ParseQuery.getQuery(CarpoolPost::class.java)
-        query.include(CarpoolPost.KEY_USER)
-        query.whereEqualTo("availability", true);
-        query.findInBackground(object : FindCallback<CarpoolPost>{
-            override fun done(rides: MutableList<CarpoolPost>?, e: ParseException?) {
+        val query: ParseQuery<CarpoolRide> = ParseQuery.getQuery(CarpoolRide::class.java)
+        query.include(CarpoolRide.KEY_USER)
+        query.addDescendingOrder("createdAt")
+        query.whereEqualTo("availability", true)
+        query.findInBackground(object : FindCallback<CarpoolRide>{
+            override fun done(rides: MutableList<CarpoolRide>?, e: ParseException?) {
                 if (e != null) {
                     Log.e(TAG, "Error fetching message "+e)
                 } else {

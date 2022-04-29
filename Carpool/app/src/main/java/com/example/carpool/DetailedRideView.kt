@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.carpool.adapters.CARPOOL_POST_EXTRA
-import com.parse.ParseUser
 import java.text.DateFormat
 
 class DetailedRideView : AppCompatActivity() {
@@ -36,7 +34,7 @@ class DetailedRideView : AppCompatActivity() {
         tvCost = findViewById(R.id.tvCostContent_DV)
 
         // get CarpoolPost object out of intent's putExtra
-        val carpoolPost = intent.getParcelableExtra<CarpoolPost>(CARPOOL_POST_EXTRA) as CarpoolPost
+        val carpoolPost = intent.getParcelableExtra<CarpoolRide>(CARPOOL_POST_EXTRA) as CarpoolRide
 
         // take data from the carpoolPost object and populate the detail screen views
         tvHostUsername.text = carpoolPost.getUser()?.username

@@ -9,8 +9,8 @@ class CarpoolApplication : Application() {
         super.onCreate()
 
         // Registering parse models
-        ParseObject.registerSubclass(CarpoolPost::class.java)
-        ParseObject.registerSubclass(User::class.java)
+        ParseObject.registerSubclass(CarpoolRide::class.java)
+        ParseObject.registerSubclass(RideRequest::class.java)
 
         Parse.initialize(
             Parse.Configuration.Builder(this)

@@ -9,6 +9,7 @@ import com.parse.ParseUser
 class RideRequest : ParseObject () {
 
     companion object {
+        const val KEY_HOST_ID: String = "hostID"
         const val KEY_CLIENT: String = "client"
         const val KEY_HOST: String = "host"
         const val KEY_PENDING: String = "pending"
@@ -48,7 +49,7 @@ class RideRequest : ParseObject () {
         put(KEY_ACCEPTED, accepted)
     }
 
-    fun setCarpoolID(carpoolID: CarpoolPost) {
+    fun setCarpoolID(carpoolID: CarpoolRide) {
         put(KEY_CARPOOL_ID, carpoolID)
     }
 
@@ -59,6 +60,10 @@ class RideRequest : ParseObject () {
     fun setClientImage(image: ParseFile) {
         put(KEY_CLIENT_IMAGE, image)
     }
+    fun setHostID(hostID: String) {
+        put(KEY_HOST_ID, hostID)
+    }
+
 
 
 
@@ -93,5 +98,8 @@ class RideRequest : ParseObject () {
         return getParseFile(KEY_CLIENT_IMAGE)
     }
 
+    fun getHostID() : String? {
+        return getString(KEY_HOST_ID)
+    }
 
 }

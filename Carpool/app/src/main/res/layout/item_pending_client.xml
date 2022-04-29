@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvRideContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:focusable="true"
+        android:clickable="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:cardMaxElevation="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="184dp">
+
+            <ImageView
+                android:id="@+id/ibProfilePicture"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tvRideCreatorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:hint="@string/rideHostName"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/ibProfilePicture"
+                app:layout_constraintStart_toEndOf="@+id/ibProfilePicture"
+                app:layout_constraintTop_toTopOf="@+id/ibProfilePicture" />
+
+            <TextView
+                android:id="@+id/tvFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/locationDescription"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/ibProfilePicture"
+                app:layout_constraintTop_toBottomOf="@+id/ibProfilePicture" />
+
+            <TextView
+                android:id="@+id/tvRideSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:hint="@string/sourceLocationData"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+                app:layout_constraintStart_toEndOf="@+id/tvFrom"
+                app:layout_constraintTop_toTopOf="@+id/tvFrom"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tvTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/destinationDescription"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvFrom"
+                app:layout_constraintTop_toBottomOf="@+id/tvFrom" />
+
+            <TextView
+                android:id="@+id/tvRideDestination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:hint="To"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTo"
+                app:layout_constraintStart_toEndOf="@+id/tvTo"
+                app:layout_constraintTop_toTopOf="@+id/tvTo"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tvCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cost: $"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRideSource"
+                app:layout_constraintEnd_toStartOf="@+id/tvRideAmount"
+                app:layout_constraintTop_toTopOf="@+id/tvRideSource" />
+
+            <TextView
+                android:id="@+id/tvRideAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:hint="$$"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCost"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvCost" />
+
+            <TextView
+                android:id="@+id/tvCurrentCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvMaxCapacity"
+                app:layout_constraintEnd_toStartOf="@+id/tvMaxCapacity"
+                app:layout_constraintTop_toTopOf="@+id/tvMaxCapacity"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tvMaxCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:text="Ride Capacity"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRideCreatorName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvRideCreatorName" />
+
+            <Button
+                android:id="@+id/btnJoinRide"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/btnJoin"
+                android:text="Pending Request"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tvRideAmount"
+                app:layout_constraintTop_toBottomOf="@+id/tvRideAmount"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_createdAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Created Date"
+                app:layout_constraintEnd_toEndOf="@+id/tvMaxCapacity"
+                app:layout_constraintTop_toTopOf="@+id/ibProfilePicture" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerInsetEnd="16dp"
+        app:dividerInsetStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

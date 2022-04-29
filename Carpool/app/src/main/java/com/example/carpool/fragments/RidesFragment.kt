@@ -1,12 +1,8 @@
 package com.example.carpool.fragments
 
-import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.example.carpool.CarpoolPost
+import com.example.carpool.CarpoolRide
 import com.example.carpool.R
 import com.parse.FindCallback
 import com.parse.ParseException
@@ -18,17 +14,17 @@ class RidesFragment : ExploreFragment() {
 
     override fun getListOfAvailableRides() {
         // specify which class to query
-        val query: ParseQuery<CarpoolPost> = ParseQuery.getQuery(CarpoolPost::class.java)
+        val query: ParseQuery<CarpoolRide> = ParseQuery.getQuery(CarpoolRide::class.java)
 
-        query.include(CarpoolPost.KEY_USER)
+        query.include(CarpoolRide.KEY_USER)
         //only return posts from currently signed in user
-        query.whereEqualTo(CarpoolPost.KEY_USER, ParseUser.getCurrentUser())
+        query.whereEqualTo(CarpoolRide.KEY_USER, ParseUser.getCurrentUser())
 
         //return posts in descending order: newer posts first.
         query.addDescendingOrder("createdAt");
 
-        query.findInBackground(object : FindCallback<CarpoolPost> {
-            override fun done(rides: MutableList<CarpoolPost>?, e: ParseException?) {
+        query.findInBackground(object : FindCallback<CarpoolRide> {
+            override fun done(rides: MutableList<CarpoolRide>?, e: ParseException?) {
                 if (e != null) {
                     Log.e(TAG, "Error fetching message " + e)
                 } else {
