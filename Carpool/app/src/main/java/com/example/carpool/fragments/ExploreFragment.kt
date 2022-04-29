@@ -65,6 +65,8 @@ open class ExploreFragment : Fragment() {
         //check if location is not empty then add to query
         //Add price to query if not empty
         query.include(CarpoolPost.KEY_USER)
+        query.addDescendingOrder("createdAt")
+        //TODO: Return only most recent 20 posts and implement infinite scroll
         query.whereEqualTo("availability", true);
         query.findInBackground(object : FindCallback<CarpoolPost>{
             override fun done(rides: MutableList<CarpoolPost>?, e: ParseException?) {

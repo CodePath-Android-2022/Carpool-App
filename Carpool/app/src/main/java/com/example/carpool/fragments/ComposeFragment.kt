@@ -55,12 +55,14 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_compose, container, false)
+
     }
 
 
     // set onclick listeners and setup logic
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         // get reference to all text views and edit text fields
         tvUsername = view.findViewById(R.id.tv_username)
@@ -162,7 +164,6 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         carpoolPost.setDescription(description)
         carpoolPost.setPrice(price)
 
-        //TODO: GET current user's first and last name and add it to the post. UPDATE GETTER AND SETTER and parse backend
         val user = ParseUser.getCurrentUser()
         carpoolPost.setFirstName(user.get("firstName").toString())
         carpoolPost.setLastName(user.get("lastName").toString())
