@@ -1,4 +1,4 @@
-package com.example.carpool
+package com.example.carpool.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -11,7 +11,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.example.carpool.CarpoolPost
+import com.example.carpool.DetailedRideView
+import com.example.carpool.R
 import com.google.android.material.card.MaterialCardView
+import java.text.DateFormat
 
 
 const val CARPOOL_POST_EXTRA = "CARPOOL_POST_EXTRA"
@@ -40,6 +44,7 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
         private val tvRideAmount: TextView = itemView.findViewById(R.id.tvRideAmount)
         private val tvMaxCapacity: TextView = itemView.findViewById(R.id.tvMaxCapacity)
         private val tvCurrentCapacity: TextView = itemView.findViewById(R.id.tvCurrentCapacity)
+        private val tv_createdAt: TextView = itemView.findViewById(R.id.tv_createdAt)
         lateinit var cvCard: MaterialCardView
 
         fun bind(ride: CarpoolPost) {
@@ -52,6 +57,10 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolPos
             tvMaxCapacity.text = ride.getCarCapacity().toString()
             val capacity = ride.getcurrCapacity().toString() + "/"
             tvCurrentCapacity.text = capacity
+            val format: DateFormat = DateFormat.getDateInstance()
+            val date = ride.createdAt
+            //tv_createdAt.text = format.format(date)
+            tv_createdAt.text = date.toLocaleString()
             // Find the ride creator
             val user = ride.getUser()
 

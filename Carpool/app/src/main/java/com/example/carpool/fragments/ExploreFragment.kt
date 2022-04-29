@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.carpool.CarpoolPost
-import com.example.carpool.CarpoolPostAdapter
 import com.example.carpool.R
+import com.example.carpool.adapters.CarpoolPostAdapter
 import com.parse.FindCallback
 import com.parse.ParseException
 import com.parse.ParseQuery

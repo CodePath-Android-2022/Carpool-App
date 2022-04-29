@@ -6,7 +6,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.example.carpool.adapters.CARPOOL_POST_EXTRA
 import com.parse.ParseUser
+import java.text.DateFormat
 
 class DetailedRideView : AppCompatActivity() {
 
@@ -16,6 +18,7 @@ class DetailedRideView : AppCompatActivity() {
     private lateinit var tvToLocation: TextView
     private lateinit var tvDescriptionText: TextView
     private lateinit var tvCapacityValue: TextView
+    private lateinit var tvDetailedCreatedAt: TextView
     private lateinit var tvCost: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +32,7 @@ class DetailedRideView : AppCompatActivity() {
         tvToLocation = findViewById(R.id.tv_to_location)
         tvDescriptionText = findViewById(R.id.tv_description_text)
         tvCapacityValue = findViewById(R.id.tvTotalCap_DV)
+        tvDetailedCreatedAt = findViewById(R.id.tvDetailedCreatedAt)
         tvCost = findViewById(R.id.tvCostContent_DV)
 
         // get CarpoolPost object out of intent's putExtra
@@ -43,6 +47,12 @@ class DetailedRideView : AppCompatActivity() {
         tvDescriptionText.text = carpoolPost.getDescription()
         tvCapacityValue.text = carpoolPost.getCarCapacity().toString()
         tvCost.text = carpoolPost.getPrice().toString()
+
+        val format: DateFormat = DateFormat.getDateInstance()
+        val date = carpoolPost.createdAt
+        //tv_createdAt.text = format.format(date)
+        tvDetailedCreatedAt.text = date.toLocaleString()
+
         val user = carpoolPost.getUser()
         val userParseImage = user?.getParseFile("profileImg")
         Glide.with(this).load(userParseImage?.url).into(ivProfileImage)
