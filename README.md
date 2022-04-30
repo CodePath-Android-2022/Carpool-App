@@ -21,7 +21,7 @@ Allows the user to edit their profile and include their personal details.
 *Note* Users cant change their username.
 - [x]  Allows the user to change their first & last name (not a username). 
 
-##Improve UI of Overall App
+## Improve UI of Overall App
 - [x] Discuss with the group an appropriate UI design
 - [x] Work on UI during the group session
 
