@@ -163,6 +163,9 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         carpoolPost.setCarCapacity(carCapacity)
         carpoolPost.setDescription(description)
         carpoolPost.setPrice(price)
+        //add user to members list
+        carpoolPost.add("members", ParseUser.getCurrentUser().objectId.toString())
+        carpoolPost.setcurrCapacity(1)
 
         val user = ParseUser.getCurrentUser()
         carpoolPost.setFirstName(user.get("firstName").toString())

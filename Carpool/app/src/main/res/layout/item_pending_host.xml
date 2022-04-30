@@ -54,7 +54,7 @@
                 android:layout_width="93dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="5dp"
-                android:backgroundTint="@color/btnJoin"
+                android:backgroundTint="@color/btnJoinEnabled"
                 android:text="Accept"
                 android:textAllCaps="false"
                 android:textSize="14sp"

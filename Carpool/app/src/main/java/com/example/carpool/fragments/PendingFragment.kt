@@ -49,11 +49,11 @@ class PendingFragment : Fragment() {
     }
 
     private fun getListOfPendingRides() {
+        val user = ParseUser.getCurrentUser()
         val query: ParseQuery<RideRequest> = ParseQuery.getQuery(RideRequest::class.java)
-        //query.include(RideRequest.KEY_HOST)
-        query.whereEqualTo("hostID", ParseUser.getCurrentUser().objectId)
+        query.whereEqualTo("hostID", user.objectId)
         query.addDescendingOrder("createdAt")
-        //query.whereEqualTo("availability", true)
+
         query.findInBackground(object : FindCallback<RideRequest> {
             override fun done(rides: MutableList<RideRequest>?, e: ParseException?) {
                 if (e != null) {

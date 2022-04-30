@@ -144,7 +144,7 @@
                 android:layout_width="176dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="@color/btnJoin"
+                android:backgroundTint="@color/btnJoinEnabled"
                 android:text="Pending Request"
                 android:textAllCaps="false"
                 android:textSize="14sp"

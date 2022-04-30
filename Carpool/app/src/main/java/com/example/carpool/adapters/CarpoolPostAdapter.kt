@@ -69,6 +69,15 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
             // Find the ride creator
             val user = ride.getUser()
 
+            val ride = carpoolRides[adapterPosition]
+            val rideUserID = ParseUser.getCurrentUser().objectId
+            val members = ride.get("members") as ArrayList<String>
+            if (members.contains(rideUserID)) {
+                joinBtn.setEnabled(false)
+            } else {
+                Log.i(TAG, "User is already part of the ride")
+            }
+
             // Populate Image Button using User Info
             val userParseImage = user?.getParseFile("profileImg")
             Glide.with(itemView.context).load(userParseImage?.url).transform(RoundedCorners(100)).into(ibProfilePicture);
@@ -83,9 +92,26 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
 
         override fun onClick(view: View?) {
             if (view == joinBtn) {
-                Log.i(TAG, "Join Button Click")
-                //TODO: GREY OUT the join button for rides created by the user.
+                Log.i(TAG, "Join Button Click, should be disabled")
+                //TODO: GREY OUT the join button for rides created by the user. If they are part of the Array then reject join (return)
                 val ride = carpoolRides[adapterPosition]
+                val rideUserID = ParseUser.getCurrentUser().objectId.toString()
+                val members = ride.get("members") as ArrayList<String>
+                if (!members.contains(rideUserID)) {
+                    ride.addUnique("members", rideUserID)
+                } else {
+                    Log.i(TAG, "User is already part of the ride")
+                    return
+                }
+
+                ride.saveInBackground{ exception ->
+                    if (exception == null) {
+                        Log.i(TAG, "Ride updated in server!")
+                    }
+                    else {
+                        Log.e(TAG, "Something went wrong! Couldn't update post. Error message: ${exception.message}")
+                    }
+                }
 
                 if(ride.getUser() != null) {
                     Log.i(TAG, ride.getUser()!!.objectId)
@@ -99,16 +125,14 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
                     requestRide.put("hostID", ride.getUser()!!.objectId)
                     requestRide.put("carpoolID", ride)
                     requestRide.put("clientname", client.username)
-                    if (ride.getUser()!!.get("profileImg") != null) {
-                        requestRide.put("clientImage", ride.getUser()!!.get("profileImg")!!)
+                    if (client.get("profileImg") != null) {
+                        requestRide.put("clientImage", client.get("profileImg")!!)
                     }
                     requestRide.saveInBackground{ exception ->
-                        if (exception == null) {  // everything is good
-                            Toast.makeText(context, "Successfully saved post in server!", Toast.LENGTH_SHORT).show()
+                        if (exception == null) {
                             Log.i(TAG, "Successfully saved post in server!")
                         }
-                        else {  // then something's gone wrong
-                            Toast.makeText(context, "Something went wrong! Couldn't save post.", Toast.LENGTH_SHORT).show()
+                        else {
                             Log.e(TAG, "Something went wrong! Couldn't save post. Error message: ${exception.message}")
                         }
                     }

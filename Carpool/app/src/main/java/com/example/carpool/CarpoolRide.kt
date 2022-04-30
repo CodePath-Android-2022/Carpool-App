@@ -20,6 +20,7 @@ class CarpoolRide : ParseObject () {
         const val KEY_LASTNAME: String = "lastName"
         const val KEY_AVAILABILITY: String = "availability"
         const val KEY_CURRENT_CAPACITY: String = "currCapacity"
+        const val KEY_MEMBERS: String = "members"
     }
 
     /**
@@ -83,6 +84,10 @@ class CarpoolRide : ParseObject () {
         return put(KEY_CURRENT_CAPACITY, currentCapacity)
     }
 
+    fun setMembers(member: List<String>) {
+        return put(KEY_MEMBERS,member)
+    }
+
 
 
 
@@ -134,6 +139,10 @@ class CarpoolRide : ParseObject () {
 
     fun getcurrCapacity() : Number? {
         return getNumber(KEY_CURRENT_CAPACITY)
+    }
+
+    fun getMembers() : List<String>? {
+        return getList<String>(KEY_MEMBERS)
     }
 
 }

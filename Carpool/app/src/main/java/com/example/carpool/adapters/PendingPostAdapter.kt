@@ -96,12 +96,20 @@ class PendingPostAdapter(val context: Context, val carpoolRides: List<RideReques
             if (view == cvCard) {
                 //perhaps navigate to a detailed view with specifics on the ride
             } else if (view == tv_btnAcceptRide) {
+                // TODO: change status (RideRequest) for accepted to TRUE
+
+                //TODO: If ride is at MAXCAPACITY then set availability of CARPOOL POST to FALSE
+
+                // TODO: go the ORIGINAL CARPOOL POST and increment count.
+                //ride.increment("currCapacity"); //increase number of people on the ride
                 Log.i(TAG, "Accepted Clicked")
-                //Go back to post and increase the capacity
             } else if (view == btnDeclineRide) {
                 Log.i(TAG, "Declined Clicked")
-                //Update the rideRequest for "declined" to true.
+                // TODO: change status (RideRequest) for accepted to TRUE
+
                 //NOTE: Other user will pull the request and display a message that their request is declined.
+
+                //REMOVE user from the MEMBERS list in the orig CARPOOL post.
             }
 
             
