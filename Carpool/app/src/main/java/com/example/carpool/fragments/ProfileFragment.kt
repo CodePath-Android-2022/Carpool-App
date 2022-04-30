@@ -65,7 +65,11 @@ class ProfileFragment : Fragment() {
             val user = ParseUser.getCurrentUser()
             //val userParseImage = user?.getParseFile("profileImg")?.url
 
-            submitPost(user, firstName, lastName, email, photoFile)
+            if (firstName.length == 0 || lastName.length == 0 || email.length == 0) {
+                Toast.makeText(requireContext(), "Fields can not be empty", Toast.LENGTH_SHORT).show()
+            } else {
+                submitPost(user, firstName, lastName, email, photoFile)
+            }
         }
 
         selectImg.setOnClickListener {

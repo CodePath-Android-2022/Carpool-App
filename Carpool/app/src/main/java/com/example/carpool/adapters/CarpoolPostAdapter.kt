@@ -70,6 +70,7 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
             val rideUserID = ParseUser.getCurrentUser().objectId
             val userRequests = ride.get("userRequests") as ArrayList<String>
             if (userRequests.contains(rideUserID)) {
+                joinBtn.text = "Joined"
                 joinBtn.setEnabled(false)
             }
 

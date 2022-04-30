@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backsu"
     tools:context=".RegisterActivity">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="Sign Up"
+        android:textColor="#FFFFFF"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +39,7 @@
             android:ems="10"
             android:hint="First Name"
             android:inputType="textPersonName"
-             />
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -48,6 +50,7 @@
         app:endIconMode="clear_text"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="50dp"
+        android:layout_marginStart="5dp"
         app:startIconContentDescription="label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/et_firstName"
@@ -60,7 +63,7 @@
             android:ems="10"
             android:hint="Last Name"
             android:inputType="textPersonName"
-            />
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,7 +85,7 @@
             android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            />
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,7 +108,7 @@
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
-            />
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,7 +133,7 @@
             android:ems="10"
             android:hint="Username"
             android:inputType="textPersonName"
-            />
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -169,6 +172,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Already have an account?"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/register_button"
         app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toStartOf="@+id/register_button"

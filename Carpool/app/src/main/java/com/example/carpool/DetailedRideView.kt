@@ -2,6 +2,7 @@ package com.example.carpool
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -19,6 +20,7 @@ class DetailedRideView : AppCompatActivity() {
     private lateinit var tvCapacityValue: TextView
     private lateinit var tvDetailedCreatedAt: TextView
     private lateinit var tvCost: TextView
+    private lateinit var btnAcceptRideDetailed: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,7 @@ class DetailedRideView : AppCompatActivity() {
         tvCapacityValue = findViewById(R.id.tvTotalCap_DV)
         tvDetailedCreatedAt = findViewById(R.id.tvDetailedCreatedAt)
         tvCost = findViewById(R.id.tvCostContent_DV)
+        btnAcceptRideDetailed = findViewById(R.id.btnAcceptRideDetailed)
 
         // get CarpoolPost object out of intent's putExtra
         val carpoolPost = intent.getParcelableExtra<CarpoolRide>(CARPOOL_POST_EXTRA) as CarpoolRide
@@ -57,6 +60,13 @@ class DetailedRideView : AppCompatActivity() {
         val user = carpoolPost.getUser()
         val userParseImage = user?.getParseFile("profileImg")
         Glide.with(this).load(userParseImage?.url).into(ivProfileImage)
+
+        val rideUserID = ParseUser.getCurrentUser().objectId
+        val userRequests = carpoolPost.get("userRequests") as ArrayList<String>
+        if (userRequests.contains(rideUserID)) {
+            btnAcceptRideDetailed.text = "Joined"
+            btnAcceptRideDetailed.setEnabled(false)
+        }
 
 
     }
