@@ -35,12 +35,6 @@ class FeedFragment : Fragment() {
         Log.i(TAG, "DATA GAINED FROM INTENT ${fromLocation}")
 
 
-//        if (fromLocation == "" && toLocation == "" && priceMin == "" && priceMax == "") {
-//            getListOfAvailableRides()
-//        } else {
-//            getListOfAvailableRides(fromLocation, toLocation, priceMin, priceMax)
-//        }
-
         val tabLayout = view.findViewById<TabLayout>(R.id.tabs)
         val viewPager2 = view.findViewById<ViewPager2>(R.id.viewPager)
 

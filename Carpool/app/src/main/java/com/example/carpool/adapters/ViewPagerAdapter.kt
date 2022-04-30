@@ -6,7 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.carpool.fragments.ExploreFragment
 import com.example.carpool.fragments.PendingFragment
-import com.example.carpool.fragments.RidesFragment
+import com.example.carpool.fragments.MyRidesFragment
 
 class ViewPagerAdapter(supportFragmentManager: FragmentManager, val totalTabs: Int, lifecycle: Lifecycle) : FragmentStateAdapter(supportFragmentManager, lifecycle){
 
@@ -20,7 +20,7 @@ class ViewPagerAdapter(supportFragmentManager: FragmentManager, val totalTabs: I
                 ExploreFragment()
             }
             1 -> {
-                RidesFragment()
+                MyRidesFragment()
             }
             2 -> {
                 PendingFragment()

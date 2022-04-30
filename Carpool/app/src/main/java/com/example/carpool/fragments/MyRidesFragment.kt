@@ -10,17 +10,14 @@ import com.parse.ParseQuery
 import com.parse.ParseUser
 
 
-class RidesFragment : ExploreFragment() {
+class MyRidesFragment : ExploreFragment() {
 
     override fun getListOfAvailableRides() {
         // specify which class to query
         val query: ParseQuery<CarpoolRide> = ParseQuery.getQuery(CarpoolRide::class.java)
 
         query.include(CarpoolRide.KEY_USER)
-        //only return posts from currently signed in user
-        query.whereEqualTo(CarpoolRide.KEY_USER, ParseUser.getCurrentUser())
-
-        //return posts in descending order: newer posts first.
+        query.whereEqualTo("members", ParseUser.getCurrentUser().objectId);
         query.addDescendingOrder("createdAt");
 
         query.findInBackground(object : FindCallback<CarpoolRide> {

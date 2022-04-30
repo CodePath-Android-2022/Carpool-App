@@ -54,7 +54,8 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
 
         fun bind(ride: CarpoolRide) {
             //change the carpool class to contain the user's first and last name
-            val fullname = "${ride.getFirstName()} ${ride.getLastName()}"
+            val currentUser = ride.getUser()
+            val fullname = "${currentUser?.get("firstName")} ${currentUser?.get("lastName")}"
             tvHostName.text = fullname
             tvRideSource.text = ride.getSourceLocation()
             tvRideDestination.text = ride.getDestinationLocation()
@@ -95,23 +96,6 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
                 Log.i(TAG, "Join Button Click, should be disabled")
                 //TODO: GREY OUT the join button for rides created by the user. If they are part of the Array then reject join (return)
                 val ride = carpoolRides[adapterPosition]
-                val rideUserID = ParseUser.getCurrentUser().objectId.toString()
-                val members = ride.get("members") as ArrayList<String>
-                if (!members.contains(rideUserID)) {
-                    ride.addUnique("members", rideUserID)
-                } else {
-                    Log.i(TAG, "User is already part of the ride")
-                    return
-                }
-
-                ride.saveInBackground{ exception ->
-                    if (exception == null) {
-                        Log.i(TAG, "Ride updated in server!")
-                    }
-                    else {
-                        Log.e(TAG, "Something went wrong! Couldn't update post. Error message: ${exception.message}")
-                    }
-                }
 
                 if(ride.getUser() != null) {
                     Log.i(TAG, ride.getUser()!!.objectId)

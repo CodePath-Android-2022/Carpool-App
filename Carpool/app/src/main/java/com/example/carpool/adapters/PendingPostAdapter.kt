@@ -14,6 +14,10 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.carpool.R
 import com.example.carpool.RideRequest
 import com.google.android.material.card.MaterialCardView
+import com.parse.GetCallback
+import com.parse.ParseException
+import com.parse.ParseObject
+import com.parse.ParseQuery
 import java.text.DateFormat
 import java.util.*
 
@@ -66,7 +70,7 @@ class PendingPostAdapter(val context: Context, val carpoolRequest: List<RideRequ
             } else if (ride.getAccepted()!!){
                 tv_btnAcceptRide.setEnabled(false)
                 btnDeclineRide.setEnabled(false)
-                tv_RequestDetails.text = "Carpool Request Declined"
+                tv_RequestDetails.text = "Carpool Request Accepted"
             } else {
                 tv_RequestDetails.text = "Wants to join you on your trip to NEED TO REPLACE"
             }
@@ -107,14 +111,44 @@ class PendingPostAdapter(val context: Context, val carpoolRequest: List<RideRequ
                 //perhaps navigate to a detailed view with specifics on the ride
             } else if (view == tv_btnAcceptRide) {
                 rideReq.setPending(false)
-                rideReq.setAccepted(true)
-                //TODO: If ride is at MAXCAPACITY then set availability of CARPOOL POST to FALSE
-                val carpoolRide = rideReq.getCarpoolID()
-                val currCapacity = carpoolRide!!.get("currCapacity")
-                val maxCapacity = carpoolRide!!.get("carCapacity")
-                Log.i(TAG, "Current Capacity ${currCapacity}, Max Capacity ${maxCapacity}")
-                // TODO: go the ORIGINAL CARPOOL POST and increment count.
-                //ride.increment("currCapacity"); //increase number of people on the ride
+                val userID = rideReq.get("clientID")
+                val query = ParseQuery.getQuery<ParseObject>("CarpoolPost")
+                // Retrieve the object by id
+                query.getInBackground(rideReq.getCarpoolID()!!.objectId, object : GetCallback<ParseObject?> {
+                    override fun done(carpoolRide: ParseObject?, e: ParseException?) {
+                        if (e == null) {
+                            // Now let's update it with some new data. In this case, only cheatMode and score
+                            // will get sent to your Parse Server. playerName hasn't changed.
+                            Log.i(TAG,carpoolRide.toString())
+                            val members = carpoolRide!!.get("members") as ArrayList<String>
+
+                            //TODO: If ride is at MAXCAPACITY then set availability of CARPOOL POST to FALSE
+                            if (members.size ==  carpoolRide.get("carCapacity")) {
+                                carpoolRide.put("availability", false)
+                                return
+                            } else {
+                                rideReq.setAccepted(true)
+                                if (!members.contains(userID)) {
+                                    carpoolRide.addUnique("members", userID)
+                                    carpoolRide.increment("currCapacity", 1)
+                                } else {
+                                    Log.i(TAG, "User is already part of the ride")
+                                    return
+                                }
+                            }
+
+                            carpoolRide.saveInBackground{ exception ->
+                                if (exception == null) {
+                                    Log.i(TAG, "Ride updated in server!")
+                                }
+                                else {
+                                    Log.e(TAG, "Something went wrong! Couldn't update post. Error message: ${exception.message}")
+                                }
+                            }
+                        }
+                    }
+                })
+
                 Log.i(TAG, "Accepted Clicked")
             } else if (view == btnDeclineRide) {
                 Log.i(TAG, "Declined Clicked")
@@ -130,10 +164,10 @@ class PendingPostAdapter(val context: Context, val carpoolRequest: List<RideRequ
             }
             rideReq.saveInBackground{ exception ->
                 if (exception == null) {
-                    Log.i(CarpoolPostAdapter.TAG, "Ride Request updated in server!")
+                    Log.i(TAG, "Ride Request updated in server!")
                 }
                 else {
-                    Log.e(CarpoolPostAdapter.TAG, "Something went wrong! Couldn't update Ride Request. Error message: ${exception.message}")
+                    Log.e(TAG, "Something went wrong! Couldn't update Ride Request. Error message: ${exception.message}")
                 }
             }
             refreshPage()
@@ -145,6 +179,6 @@ class PendingPostAdapter(val context: Context, val carpoolRequest: List<RideRequ
     }
 
     companion object{
-        val TAG = "CarpoolPostAdapter"
+        val TAG = "PendingPostAdapter"
     }
 }

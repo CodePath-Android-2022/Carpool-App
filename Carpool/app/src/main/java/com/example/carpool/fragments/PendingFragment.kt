@@ -52,6 +52,7 @@ class PendingFragment : Fragment() {
         val user = ParseUser.getCurrentUser()
         val query: ParseQuery<RideRequest> = ParseQuery.getQuery(RideRequest::class.java)
         query.whereEqualTo("hostID", user.objectId)
+        query.whereEqualTo("pending", true)
         query.addDescendingOrder("createdAt")
 
         query.findInBackground(object : FindCallback<RideRequest> {

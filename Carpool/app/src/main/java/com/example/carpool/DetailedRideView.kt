@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.carpool.adapters.CARPOOL_POST_EXTRA
+import com.parse.ParseUser
 import java.text.DateFormat
 
 class DetailedRideView : AppCompatActivity() {
@@ -36,8 +37,10 @@ class DetailedRideView : AppCompatActivity() {
         // get CarpoolPost object out of intent's putExtra
         val carpoolPost = intent.getParcelableExtra<CarpoolRide>(CARPOOL_POST_EXTRA) as CarpoolRide
 
+        val currentUser = ParseUser.getCurrentUser()
+        val fullname = "${currentUser.get("firstName")} ${currentUser.get("lastName")}"
         // take data from the carpoolPost object and populate the detail screen views
-        tvHostUsername.text = carpoolPost.getUser()?.username
+        tvHostUsername.text = fullname
         // can't load in the trip creator's profile image. we do not have a function to retrieve that yet
         // Glide.with(this).load(current ride owner's profile photo).into(ivProfileImage)
         tvFromLocation.text = carpoolPost.getSourceLocation()
