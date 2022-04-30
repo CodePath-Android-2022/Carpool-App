@@ -30,7 +30,7 @@ Allows the user to edit their profile and include their personal details.
 Here's a walkthrough of implemented user stories:
 
 <img src='Carpool_week3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='progress_week3.png' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='progress_week3.PNG' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 
