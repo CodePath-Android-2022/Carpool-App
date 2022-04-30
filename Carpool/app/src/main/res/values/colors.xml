@@ -3,6 +3,7 @@
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#344955</color>
     <color name="orange_900">#F48226</color>
+    <color name="text_hintClr">#344955</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -10,4 +11,6 @@
     <color name="btnJoinEnabled">#F48226</color>
     <color name="btnJoinDisabled">#677574</color>
     <color name="FAB_Surface900">#F48226</color>
+    <color name="boxBackgroundClr">#5D7F92</color>
+    <color name="buttonClr">#425C6A</color>
 </resources>
