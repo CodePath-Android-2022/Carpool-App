@@ -160,22 +160,6 @@ class ProfileFragment : Fragment() {
         Glide.with(this).load(userParseImage?.url).into(ivUserImgPreview);
     }
 
-//    // Returns the File for a photo stored on disk given the fileName
-//    fun getPhotoFileUri(fileName: String): File {
-//        // Get safe storage directory for photos
-//        // Use `getExternalFilesDir` on Context to access package-specific directories.
-//        // This way, we don't need to request external read/write runtime permissions.
-//        val mediaStorageDir =
-//            File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), TAG)
-//
-//        // Create the storage directory if it does not exist
-//        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
-//            Log.d(TAG, "failed to create directory")
-//        }
-//
-//        // Return the file target for the photo based on filename
-//        return File(mediaStorageDir.path + File.separator + fileName)
-//    }
 
 
 

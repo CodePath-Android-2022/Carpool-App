@@ -1,6 +1,7 @@
 package com.example.carpool.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,13 +12,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.example.carpool.MainActivity
 import com.example.carpool.R
 import com.example.carpool.RideRequest
 import com.google.android.material.card.MaterialCardView
-import com.parse.GetCallback
-import com.parse.ParseException
-import com.parse.ParseObject
-import com.parse.ParseQuery
+import com.parse.*
 import java.text.DateFormat
 import java.util.*
 
@@ -51,7 +50,8 @@ class PendingPostAdapter(val context: Context, val carpoolRequest: List<RideRequ
 
         fun bind(ride: RideRequest) {
             //change the carpool class to contain the user's first and last name
-            val fullname = "${ride.getClientName()}"
+            val client: ParseUser? = ride.getClient()?.fetchIfNeeded()
+            val fullname = "${client?.get("firstName")} ${client?.get("lastName")}"
             tvClientName.text = fullname
             val format: DateFormat = DateFormat.getDateInstance()
             val date = ride.createdAt
@@ -71,14 +71,18 @@ class PendingPostAdapter(val context: Context, val carpoolRequest: List<RideRequ
                 tv_btnAcceptRide.setEnabled(false)
                 btnDeclineRide.setEnabled(false)
                 tv_RequestDetails.text = "Carpool Request Accepted"
-            } else {
+            } else if (ride.getHostID() == ParseUser.getCurrentUser().objectId){
                 tv_RequestDetails.text = "Wants to join you on your trip to NEED TO REPLACE"
+            } else {
+                tv_RequestDetails.text = "waiting for ${ride.getHostName()} to accept your request"
+                tv_btnAcceptRide.visibility = View.GONE
+                btnDeclineRide.visibility = View.GONE
             }
         }
 
         init {
             cvCard = itemView.findViewById(R.id.cvRideContainer)
-            tv_btnAcceptRide = itemView.findViewById(R.id.btnAcceptRide)
+            tv_btnAcceptRide = itemView.findViewById(R.id.btnAcceptRideDetailed)
             btnDeclineRide = itemView.findViewById(R.id.btnDeclineRide)
 
 
@@ -91,22 +95,7 @@ class PendingPostAdapter(val context: Context, val carpoolRequest: List<RideRequ
 
             //1. Get notified of the particular ride which was clicked
             val rideReq = carpoolRequest[adapterPosition]
-            Log.i(TAG,"Ride clicked ${rideReq}")
 
-            //get Specific ride's post and then update it.
-//            val query = ParseQuery.getQuery<ParseObject>("RideRequest")
-//            // Retrieve the object by id
-//            query.getInBackground(ride.objectId, object : GetCallback<ParseObject?> {
-//                fun done(gameScore: ParseObject, e: ParseException?) {
-//                    if (e == null) {
-//                        // Now let's update it with some new data. In this case, only cheatMode and score
-//                        // will get sent to your Parse Server. playerName hasn't changed.
-//                        gameScore.put("score", 1338)
-//                        gameScore.put("cheatMode", true)
-//                        gameScore.saveInBackground()
-//                    }
-//                }
-//            })
             if (view == cvCard) {
                 //perhaps navigate to a detailed view with specifics on the ride
             } else if (view == tv_btnAcceptRide) {
@@ -156,9 +145,6 @@ class PendingPostAdapter(val context: Context, val carpoolRequest: List<RideRequ
                 rideReq.setDeclined(true)
                 rideReq.setPending(false)
 
-                //NOTE: Other user will pull the request and display a message that their request is declined.
-
-                //REMOVE user from the MEMBERS list in the orig CARPOOL post.
                 val clientID = rideReq.getClientID()
                 rideReq.getCarpoolID()?.removeAll("members", Arrays.asList(clientID))
             }
@@ -173,7 +159,8 @@ class PendingPostAdapter(val context: Context, val carpoolRequest: List<RideRequ
             refreshPage()
         }
         fun refreshPage(){
-            Log.i(TAG,"Page Refresh")
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
         }
 
     }

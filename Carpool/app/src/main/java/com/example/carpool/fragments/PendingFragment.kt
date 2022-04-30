@@ -45,13 +45,39 @@ class PendingFragment : Fragment() {
         pendingRecyclerView.adapter = adapter
         pendingRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        getListOfPendingRides()
+        getListOfPendingRidesHost()
+        getListOfPendingRidesClient()
     }
 
-    private fun getListOfPendingRides() {
+    private fun getListOfPendingRidesHost() {
         val user = ParseUser.getCurrentUser()
         val query: ParseQuery<RideRequest> = ParseQuery.getQuery(RideRequest::class.java)
         query.whereEqualTo("hostID", user.objectId)
+        query.whereEqualTo("pending", true)
+        query.addDescendingOrder("createdAt")
+
+        query.findInBackground(object : FindCallback<RideRequest> {
+            override fun done(rides: MutableList<RideRequest>?, e: ParseException?) {
+                if (e != null) {
+                    Log.e(TAG, "Error fetching pending rides "+e)
+                } else {
+                    if (rides != null) {
+                        for (ride in rides) {
+                            Log.i(TAG, ride.toString() + (ride.getHost()?.objectId))
+                        }
+                        listOfRides.addAll(rides)
+                        adapter.notifyDataSetChanged()
+                    }
+                }
+            }
+
+        })
+    }
+
+    private fun getListOfPendingRidesClient() {
+        val user = ParseUser.getCurrentUser()
+        val query: ParseQuery<RideRequest> = ParseQuery.getQuery(RideRequest::class.java)
+        query.whereEqualTo("clientID", user.objectId)
         query.whereEqualTo("pending", true)
         query.addDescendingOrder("createdAt")
 

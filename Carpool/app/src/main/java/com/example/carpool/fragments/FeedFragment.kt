@@ -32,7 +32,6 @@ class FeedFragment : Fragment() {
         toLocation = requireArguments().getString("toLocation").toString()
         priceMin = requireArguments().getString("priceMin").toString()
         priceMax = requireArguments().getString("priceMax").toString()
-        Log.i(TAG, "DATA GAINED FROM INTENT ${fromLocation}")
 
 
         val tabLayout = view.findViewById<TabLayout>(R.id.tabs)

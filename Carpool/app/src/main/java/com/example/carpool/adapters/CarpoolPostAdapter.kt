@@ -9,14 +9,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.example.carpool.CarpoolRide
-import com.example.carpool.DetailedRideView
-import com.example.carpool.R
-import com.example.carpool.RideRequest
+import com.example.carpool.*
 import com.google.android.material.card.MaterialCardView
 import com.parse.ParseUser
 import java.text.DateFormat
@@ -72,11 +68,9 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
 
             val ride = carpoolRides[adapterPosition]
             val rideUserID = ParseUser.getCurrentUser().objectId
-            val members = ride.get("members") as ArrayList<String>
-            if (members.contains(rideUserID)) {
+            val userRequests = ride.get("userRequests") as ArrayList<String>
+            if (userRequests.contains(rideUserID)) {
                 joinBtn.setEnabled(false)
-            } else {
-                Log.i(TAG, "User is already part of the ride")
             }
 
             // Populate Image Button using User Info
@@ -86,7 +80,7 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
 
         init {
             cvCard = itemView.findViewById(R.id.cvRideContainer)
-            joinBtn = itemView.findViewById(R.id.btnAcceptRide)
+            joinBtn = itemView.findViewById(R.id.btnAcceptRideDetailed)
             joinBtn.setOnClickListener(this)
             cvCard.setOnClickListener(this)
         }
@@ -98,7 +92,8 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
                 val ride = carpoolRides[adapterPosition]
 
                 if(ride.getUser() != null) {
-                    Log.i(TAG, ride.getUser()!!.objectId)
+                    ride.add("userRequests", ParseUser.getCurrentUser().objectId.toString())
+
                     // create a Ride Request post object to be sent to the server
                     val requestRide = RideRequest()
 
@@ -108,7 +103,8 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
                     requestRide.put("host", ride.getUser()!!)
                     requestRide.put("hostID", ride.getUser()!!.objectId)
                     requestRide.put("carpoolID", ride)
-                    requestRide.put("clientname", client.username)
+                    requestRide.put("clientname", "${client.get("firstName")} ${client.get("lastName")}")
+                    requestRide.put("hostName", "${ride.getFirstName()} ${ride.getLastName()}")
                     requestRide.put("clientID", client.objectId)
                     if (client.get("profileImg") != null) {
                         requestRide.put("clientImage", client.get("profileImg")!!)
@@ -121,10 +117,11 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
                             Log.e(TAG, "Something went wrong! Couldn't save post. Error message: ${exception.message}")
                         }
                     }
+
+                    val intent = Intent(context, MainActivity::class.java)
+                    context.startActivity(intent)
                 }
 
-
-                //TODO: Create a new request and send it to parse backend.
             } else if (view == cvCard) {
                 //1. Get notified of the particular ride which was clicked
                 val ride = carpoolRides[adapterPosition]

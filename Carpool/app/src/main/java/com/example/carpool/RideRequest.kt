@@ -19,6 +19,7 @@ class RideRequest : ParseObject () {
         const val KEY_CLIENT_NAME: String = "clientname"
         const val KEY_CLIENT_IMAGE: String = "clientImage"
         const val KEY_CLIENT_ID: String = "clientID"
+        const val KEY_HOST_NAME: String = "hostName"
     }
 
     /**
@@ -115,6 +116,10 @@ class RideRequest : ParseObject () {
     }
     fun getClientID() : String? {
         return getString(KEY_CLIENT_ID)
+    }
+
+    fun getHostName(): String? {
+        return getString(KEY_HOST_NAME)
     }
 
 }

@@ -2,6 +2,7 @@ package com.example.carpool.fragments
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.carpool.CarpoolRide
+import com.example.carpool.MainActivity
 import com.example.carpool.R
 import com.parse.ParseUser
 import java.util.*
@@ -80,7 +82,7 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
 
         // fill username view with current user's username
         val user = ParseUser.getCurrentUser()
-        tvUsername.text = user.username
+        tvUsername.text = "${user.get("firstName").toString()} ${user.get("lastName").toString()}"
 
         //load user profile image
         val userParseImage = user.getParseFile("profileImg")
@@ -164,6 +166,7 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
         carpoolPost.setDescription(description)
         carpoolPost.setPrice(price)
         //add user to members list
+        carpoolPost.add("userRequests", ParseUser.getCurrentUser().objectId.toString())
         carpoolPost.add("members", ParseUser.getCurrentUser().objectId.toString())
         carpoolPost.setcurrCapacity(1)
 
@@ -186,6 +189,13 @@ class ComposeFragment : Fragment(), DatePickerDialog.OnDateSetListener, TimePick
                 Log.e(TAG, "Something went wrong! Couldn't save post. Error message: ${exception.message}")
             }
         }
+
+        goToHomePage()
+    }
+
+    private fun goToHomePage() {
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        startActivity(intent)
     }
 
 
