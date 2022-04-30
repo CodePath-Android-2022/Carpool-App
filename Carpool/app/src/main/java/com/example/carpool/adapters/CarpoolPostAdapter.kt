@@ -125,6 +125,7 @@ class CarpoolPostAdapter(val context: Context, val carpoolRides: List<CarpoolRid
                     requestRide.put("hostID", ride.getUser()!!.objectId)
                     requestRide.put("carpoolID", ride)
                     requestRide.put("clientname", client.username)
+                    requestRide.put("clientID", client.objectId)
                     if (client.get("profileImg") != null) {
                         requestRide.put("clientImage", client.get("profileImg")!!)
                     }
