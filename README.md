@@ -1,4 +1,38 @@
 # CarpoolApp
+# Week 9 
+## User Stories
+
+The following functionality is completed:
+
+## MyRides Page
+Implement an intent that navigates the user to a page that displays the rides they have created and joined.
+
+- [x] Displays rides that a user has signed up for. 
+- [x] Displays rides they have created 
+
+## Home Page Screen & Detailed RideView
+- [x]  Allows the user to click on each ride for a detailed view (Another issue).
+- [x] Display a detailed view for each ride when a user clicks on it. 
+
+## Profile Screen
+Allows the user to edit their profile and include their personal details.
+
+- [x] Allow user to upload their picture and displays it within their profile
+*Note* Users cant change their username.
+- [x]  Allows the user to change their first & last name (not a username). 
+
+##Improve UI of Overall App
+- [x] Discuss with the group an appropriate UI design
+- [x] Work on UI during the group session
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='Carpool_week3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='progress_week3.png' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
 
 # Week 8
 
