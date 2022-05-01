@@ -1,5 +1,6 @@
-# CarpoolApp
+# InstaRide
 # Week 9 
+
 ## User Stories
 
 The following functionality is completed:
