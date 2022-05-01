@@ -1,5 +1,5 @@
 # InstaRide
-# Week 9 
+# Week 4 (Sprint 3)
 
 ## User Stories
 
@@ -35,7 +35,7 @@ Here's a walkthrough of implemented user stories:
 
 
 
-# Week 8
+# Week 3 (Sprint 2)
 
 ## User Stories
 
@@ -66,7 +66,7 @@ Here's a walkthrough of implemented user stories:
 <img src='progress_week2.png' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
-# Week 7
+# Week 2 (Sprint 1)
 
 ## User Stories
 
@@ -115,6 +115,7 @@ Here's a walkthrough of implemented user stories:
 1. [Wireframes](#Wireframes)
 1. [Schema](#Schema)
 
+## Week 1 (Sprint Planning)
 ## Overview
 ### Description
 A carpool app which helps connect a lift seeker and lift giver to different geographical locations. Potentially could be used as a ride sharing app on campus and building connections.
